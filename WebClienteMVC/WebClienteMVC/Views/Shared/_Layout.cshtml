@@ -1,0 +1,371 @@
+﻿@{
+    Layout = null;
+    // Recuperamos el nombre, si es nulo será "Invitado"
+    string usuarioNombre = Session["Usuario"]?.ToString() ?? "Invitado";
+    // Variable auxiliar para saber si está logueado
+    bool isLogged = usuarioNombre != "Invitado";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title - La Mamacha</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* CABECERA */
+        .header-food {
+            background-image: url('/Recursos/Inicio.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 15px 10px;
+            border-bottom: 3px solid #000;
+        }
+
+        .text-border {
+            text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+        }
+
+        .menu-food a {
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+            text-decoration: none;
+        }
+
+            .menu-food a:hover {
+                color: yellow;
+            }
+
+        /* ESTILO PARA EL DROPDOWN DEL USUARIO */
+        .user-dropdown-toggle {
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+            .user-dropdown-toggle:hover {
+                opacity: 0.9;
+            }
+
+        /* PANEL IZQUIERDO */
+        #panelCompras {
+            background: #f7f7f7;
+            border-right: 3px solid #ccc;
+            min-height: calc(100vh - 260px);
+            overflow-y: auto;
+            transition: width 0.35s ease;
+            width: 400px;
+            max-width: 400px;
+            min-width: 55px;
+        }
+
+        .panel-collapsed {
+            width: 55px !important;
+            max-width: 60px !important;
+            overflow: hidden;
+        }
+
+        .table-hidden, .titulo-hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .toggle-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 20;
+        }
+
+        /* CONTENIDO PRINCIPAL */
+        .main-content {
+            min-height: calc(100vh - 260px);
+            padding: 20px;
+            overflow-y: auto;
+            height: calc(100vh - 250px);
+            padding-right: 10px;
+        }
+
+        /* FOOTER */
+        .footer-food {
+            background-image: url('/Recursos/Inicio.jpg');
+            background-size: cover;
+            text-align: center;
+            padding: 23px 0;
+            border-top: 3px solid #000;
+        }
+
+            .footer-food h1 {
+                color: white;
+                font-size: 40px;
+                font-weight: bold;
+                text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+            }
+    </style>
+
+</head>
+<body>
+
+    <div class="container-fluid header-food">
+        <div class="row text-center align-items-center">
+
+            <div class="col-12 col-md-2">
+                <img src="~/Recursos/fondo_web.png" class="img-fluid" style="max-height: 110px;" />
+            </div>
+
+            <div class="col-12 col-md-8">
+                <h1 class="text-border fw-bold">La Mamacha</h1>
+
+                <div class="row menu-food mt-3">
+                    <div class="col">@Html.ActionLink("Plato", "Platos", "Home")</div>
+                    <div class="col">@Html.ActionLink("Promociones", "Promociones", "Home")</div>
+                    <div class="col">@Html.ActionLink("Estado", "Estado", "Home")</div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-2 d-flex justify-content-center justify-content-md-end pe-md-4">
+
+                <div class="dropdown">
+                    <div class="user-dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="text-end me-2">
+                            <h4 class="text-border m-0">@usuarioNombre</h4>
+                            <small class="text-white">@(isLogged ? "Online" : "Bienvenido")</small>
+                        </div>
+                        <img src="/Recursos/Usuario.png" class="img-fluid rounded-circle border border-2 border-white" style="max-height: 60px; width: 60px; object-fit: cover;" />
+                    </div>
+
+                    <ul class="dropdown-menu dropdown-menu-end shadow">
+                        @if (isLogged)
+                        {
+                            <li><h6 class="dropdown-header">Hola, @usuarioNombre</h6></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger fw-bold" href="@Url.Action("Login", "Login")">Cerrar Sesión</a></li>
+                        }
+                        else
+                        {
+                            <li><a class="dropdown-item fw-bold" href="@Url.Action("Login", "Usuarios")">Iniciar Sesión</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Registro", "Usuarios")">Registrarse</a></li>
+                        }
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row gx-0 d-flex">
+
+            <div id="panelCompras" class="col-auto position-relative">
+
+                <div id="tituloCompras" class="p-2">
+                    <h4 class="fw-bold m-0">Compras</h4>
+                </div>
+
+                <button id="btnTogglePanel" class="btn btn-warning toggle-btn">☰</button>
+
+                <div class="compras-table p-2">
+                    <table class="table table-bordered tabla-compras">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Plato</th>
+                                <th>Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaCompras">
+                        </tbody>
+                    </table>
+                    <h4 class="text-end fw-bold mt-2">
+                        Total: <span id="totalCompras">S/ 0.00</span>
+                    </h4>
+                    <button class="btn btn-success w-100 mt-2 fw-bold"
+                            onclick="confirmarVenta()">
+                        Realizar Pedido
+                    </button>
+                </div>
+            </div>
+
+            <div class="col main-content flex-grow-1">
+                @RenderBody()
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer-food">
+        <h1>Date un gustito, te lo mereces</h1>
+    </div>
+
+    <script>
+        const panel = document.getElementById("panelCompras");
+        const tabla = document.querySelector(".compras-table");
+        const titulo = document.getElementById("tituloCompras");
+        const btn = document.getElementById("btnTogglePanel");
+
+        let oculto = false;
+
+        function aplicarResponsive() {
+            if (window.innerWidth < 768) {
+                panel.classList.add("panel-collapsed");
+                tabla.classList.add("table-hidden");
+                titulo.classList.add("titulo-hidden");
+                btn.classList.add("toggle-floating");
+                oculto = true;
+            } else {
+                panel.classList.remove("panel-collapsed");
+                tabla.classList.remove("table-hidden");
+                titulo.classList.remove("titulo-hidden");
+                oculto = false;
+            }
+        }
+
+        aplicarResponsive();
+        window.addEventListener("resize", aplicarResponsive);
+
+        btn.addEventListener("click", () => {
+            oculto = !oculto;
+            if (oculto) {
+                panel.classList.add("panel-collapsed");
+                tabla.classList.add("table-hidden");
+                titulo.classList.add("titulo-hidden");
+                btn.classList.add("toggle-floating");
+            } else {
+                panel.classList.remove("panel-collapsed");
+                tabla.classList.remove("table-hidden");
+                titulo.classList.remove("titulo-hidden");
+            }
+        });
+
+        let compras = [];
+
+        // CARGAR CARRITO
+        if (sessionStorage.getItem("carrito")) {
+            compras = JSON.parse(sessionStorage.getItem("carrito"));
+            actualizarTabla();
+        }
+
+        function guardarCarrito() {
+            sessionStorage.setItem("carrito", JSON.stringify(compras));
+        }
+
+        // AGREGAR PLATO
+        function agregarACompras(id, nombre, precio, cantidad = 1) {
+            let existe = compras.find(x => x.id === id && x.tipo === "plato");
+            if (existe) {
+                existe.cantidad += cantidad;
+            } else {
+                compras.push({
+                    id: id, nombre: nombre, precio: precio, cantidad: cantidad,
+                    descuento: null, promocion: null, tipo: "plato"
+                });
+            }
+            guardarCarrito();
+            actualizarTabla();
+        }
+
+        // AGREGAR PROMO
+        function agregarAComprasPromo(idPlato, nombre, descuento, precio, cant) {
+            let existe = compras.find(x => x.id === idPlato && x.tipo === "promo");
+            if (existe) {
+                existe.cantidad += 1;
+            } else {
+                compras.push({
+                    id: idPlato, nombre: nombre, precio: precio, cantidad: cant,
+                    descuento: descuento, promocion: null, tipo: "promo"
+                });
+            }
+            guardarCarrito();
+            actualizarTabla();
+        }
+
+        // ELIMINAR
+        function eliminarDelCarrito(id, tipo) {
+            compras = compras.filter(p => !(p.id === id && p.tipo === tipo));
+            guardarCarrito();
+            actualizarTabla();
+        }
+
+        // ACTUALIZAR HTML
+        function actualizarTabla() {
+            let tabla = document.getElementById("tablaCompras");
+            let totalSpan = document.getElementById("totalCompras");
+            tabla.innerHTML = "";
+            let total = 0;
+
+            compras.forEach(item => {
+                let subtotal = item.precio * item.cantidad;
+                total += subtotal;
+                tabla.innerHTML += `
+                    <tr>
+                        <td>${item.cantidad}</td>
+                        <td>${item.tipo === "promo" ? "PROMO-" : ""}${item.nombre}</td>
+                        <td>S/ ${subtotal.toFixed(2)}</td>
+                        <td><button class="btn btn-danger btn-sm" onclick="eliminarDelCarrito(${item.id}, '${item.tipo}')">X</button></td>
+                    </tr>`;
+            });
+            totalSpan.innerHTML = "S/ " + total.toFixed(2);
+        }
+
+        // CONFIRMAR VENTA
+        function confirmarVenta() {
+            if (compras.length === 0) {
+                alert("El carrito está vacío.");
+                return;
+            }
+
+            let detalle = compras.map(x => ({
+                Id_Plato: x.id,
+                Precio_Unitario: x.precio,
+                Cantidad: x.cantidad,
+                Descuento: x.descuento,
+                Id_Promocion: x.promocion
+            }));
+
+            // AQUÍ SE USA JQUERY ($.ajax)
+            $.ajax({
+                url: "/Ventas/RegistrarVenta",
+                method: "POST",
+                data: { json: JSON.stringify(detalle) },
+                success: function (r) {
+                    if (r.ok) {
+                        sessionStorage.setItem("ventaActual", r.idVenta);
+                        alert("Venta registrada correctamente ✔");
+                        compras = [];
+                        sessionStorage.removeItem("carrito");
+                        actualizarTabla();
+                    } else {
+                        alert("Error: " + r.error);
+                    }
+                },
+                error: function (xhr) {
+                    alert("Error inesperado. Revisa que iniciaste sesión.");
+                    console.error(xhr);
+                }
+            });
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

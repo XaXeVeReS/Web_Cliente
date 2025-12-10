@@ -1,0 +1,34 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="modal fade show" id="modalError" tabindex="-1"
+     style="display:block; background:rgba(0,0,0,0.5);">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-danger shadow-lg">
+
+            <!-- HEADER -->
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title">⚠ Error</h5>
+            </div>
+
+            <!-- BODY -->
+            <div class="modal-body text-center">
+                <p class="fw-bold fs-5">@ViewBag.Mensaje</p>
+            </div>
+
+            <!-- FOOTER -->
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="history.back()">Regresar</button>
+                <button class="btn btn-danger" onclick="cerrarModalError()">Cerrar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function cerrarModalError() {
+        document.getElementById("modalError").style.display = "none";
+    }
+</script>

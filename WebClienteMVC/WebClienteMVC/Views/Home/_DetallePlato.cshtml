@@ -1,0 +1,106 @@
+﻿@model WebClienteMVC.WCF_Apl_Dis.Cls_Platos
+@{
+    int stock = ViewBag.Stock != null ? (int)ViewBag.Stock : 0;
+}
+
+<div class="modal fade" id="modalPlato" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content shadow-lg" style="border-radius:18px; overflow:hidden;">
+
+            <!-- HEADER -->
+            <div class="modal-header bg-warning text-dark">
+                <h4 class="modal-title fw-bold">@Model.Nombre</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- BODY -->
+            <div class="modal-body">
+
+                <div class="row">
+
+                    <!-- IMAGEN -->
+                    <div class="col-md-5 d-flex justify-content-center align-items-start mb-3">
+                        <img src="@(Model.Imagen != null
+                            ? "data:image/png;base64," + Convert.ToBase64String(Model.Imagen)
+                            : Url.Content("~/Recursos/no-imagen.png"))"
+                             class="img-fluid rounded shadow"
+                             style="max-height:260px; object-fit:cover; width:100%;" />
+                    </div>
+
+                    <!-- INFORMACIÓN -->
+                    <div class="col-md-7">
+
+                        <p class="fs-5 mb-2"><strong>Descripción:</strong> @Model.Descripcion</p>
+
+                        <p class="fs-4 text-success fw-bold mb-2">
+                            Precio: <span class="text-success">S/ @Model.Precio.ToString("0.00")</span>
+                        </p>
+
+                        <p class="fs-5 mb-4">
+                            <strong>Stock disponible:</strong>
+                            <span class="text-primary fw-bold">@stock platos</span>
+                        </p>
+
+                        <!-- SELECTOR DE CANTIDAD -->
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <button class="btn btn-outline-dark px-3 fs-4"
+                                    onclick="cambiarCantidad(-1)">
+                                −
+                            </button>
+
+                            <input id="cantidadPlato"
+                                   type="text"
+                                   value="1"
+                                   class="form-control text-center fw-bold fs-5"
+                                   style="width:80px;"
+                                   readonly />
+
+                            <button class="btn btn-outline-dark px-3 fs-4"
+                                    onclick="cambiarCantidad(1)">
+                                +
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- FOOTER -->
+            <div class="modal-footer d-flex justify-content-between">
+
+                <button class="btn btn-secondary px-4" data-bs-dismiss="modal">
+                    Cerrar
+                </button>
+
+                <button class="btn btn-warning fw-bold px-4 fs-5"
+                        onclick="confirmarAgregar(@Model.Id_Plato, '@Model.Nombre', @Model.Precio)">
+                    ➕ Agregar
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function cambiarCantidad(n) {
+        let input = document.getElementById("cantidadPlato");
+        let v = parseInt(input.value);
+
+        if (v + n >= 1)
+            input.value = v + n;
+    }
+
+    function confirmarAgregar(id, nombre, precio) {
+        let cant = parseInt(document.getElementById("cantidadPlato").value);
+
+        // Llamar a la función del Layout
+        agregarACompras(id, nombre, precio, cant);
+
+        // Cerrar modal
+        let modal = bootstrap.Modal.getInstance(document.getElementById("modalPlato"));
+        modal.hide();
+    }
+</script>

@@ -1,0 +1,113 @@
+﻿@{
+    ViewBag.Title = "Estado del Pedido";
+}
+
+<div id="sin-pedido" class="text-center mt-5" style="display:none;">
+    <h1 class="fw-bold">Sin Pedido</h1>
+    <img src="/Recursos/sinpedido.png" style="max-width:300px;" />
+</div>
+
+<div id="contenedor-estado" class="text-center mt-5" style="display:none;">
+
+    <h1 id="tituloEstado" class="fw-bold"></h1>
+
+    <img id="imagenEstado" src="" style="max-width:260px;" />
+
+    <h3 id="mensajeEstado" class="fw-bold mt-3"></h3>
+
+    <button id="btnCancelar" class="btn btn-danger mt-3" onclick="cancelarPedido()">Cancelar Pedido</button>
+    <button id="btnVer" class="btn btn-warning mt-3" onclick="verPedido()">Ver Pedido</button>
+
+    <div id="comentarios" class="mt-4">
+        <h2>Comentarios</h2>
+
+        <textarea id="txtComentario" class="form-control"
+                  placeholder="Escribe tu comentario"></textarea>
+
+        <button class="btn btn-primary mt-2" onclick="guardarComentario()">
+            Enviar comentario
+        </button>
+    </div>
+</div>
+
+
+@section scripts{
+    <script>
+
+        // ================================
+        // 1️⃣ OBTENER LA VENTA
+        // ================================
+        let idVenta = sessionStorage.getItem("ventaActual");
+
+        if (!idVenta) {
+            // No hay pedido registrado
+            document.getElementById("sin-pedido").style.display = "block";
+        } else {
+            // Hay pedido → mostrar contenedor
+            document.getElementById("contenedor-estado").style.display = "block";
+            actualizarEstado();
+            setInterval(actualizarEstado, 5000);
+        }
+
+
+        // ===========================================
+        // 2️⃣ ACTUALIZAR ESTADO DEL PEDIDO
+        // ===========================================
+        function actualizarEstado() {
+
+            $.get("/Ventas/EstadoVentaJson", { id: idVenta }, function (data) {
+
+                if (!data.ok) return;
+
+                let estado = data.estado;
+
+                if (estado === "PENDIENTE" || estado === "Procesando") {
+
+                    $("#tituloEstado").text("Preparando…");
+                    $("#imagenEstado").attr("src", "/Recursos/preparando.png");
+                    $("#mensajeEstado").text("Tiempo estimado: " + data.horaLista);
+                }
+                else if (estado === "Entregado") {
+
+                    $("#tituloEstado").text("Listo");
+                    $("#imagenEstado").attr("src", "/Recursos/listo.png");
+                    $("#mensajeEstado").text("Su pedido ya puede recogerse");
+                }
+                else if (estado === "CANCELADO") {
+
+                    $("#tituloEstado").text("Cancelado");
+                    $("#imagenEstado").attr("src", "/Recursos/cancelado.png");
+                    $("#mensajeEstado").text("El pedido fue cancelado");
+                }
+
+                validarComentario();
+            });
+        }
+
+
+        // ===========================================
+        // 3️⃣ VALIDAR SI YA COMENTÓ
+        // ===========================================
+        function validarComentario() {
+            if (localStorage.getItem("comentario_" + idVenta)) {
+                $("#txtComentario").prop("disabled", true);
+            }
+        }
+
+        // ===========================================
+        // 4️⃣ GUARDAR COMENTARIO
+        // ===========================================
+        function guardarComentario() {
+
+            let com = $("#txtComentario").val();
+
+            if (com.trim() === "") return;
+
+            localStorage.setItem("comentario_" + idVenta, com);
+            $("#txtComentario").prop("disabled", true);
+
+            alert("Gracias por su comentario!");
+        }
+
+    </script>
+}

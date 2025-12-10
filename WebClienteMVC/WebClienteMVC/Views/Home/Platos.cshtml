@@ -1,0 +1,77 @@
+﻿@model List<WebClienteMVC.WCF_Apl_Dis.Cls_Platos>
+
+<div class="container mt-4">
+
+    <h2 class="fw-bold mb-4 text-center">Nuestros Platos</h2>
+
+    <div class="row g-4">
+
+        @foreach (var p in Model)
+        {
+            <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+
+                <div class="card shadow-sm border-0 h-100">
+
+                    <!-- Imagen -->
+                    <img src="@(p.Imagen != null
+                            ? "data:image/png;base64," + Convert.ToBase64String(p.Imagen)
+                            : Url.Content("~/Recursos/no-imagen.png"))"
+                         class="card-img-top"
+                         style="height:180px; object-fit:cover;" />
+
+                    <div class="card-body text-center">
+
+                        <!-- Nombre -->
+                        <h5 class="fw-bold">@p.Nombre</h5>
+
+                        <!-- Precio -->
+                        <p class="text-success fw-bold fs-5">
+                            S/ @p.Precio.ToString("0.00")
+                        </p>
+
+                        <!-- Botón -->
+                        <button class="btn btn-warning fw-bold w-100"
+                                onclick="abrirDetalle(@p.Id_Plato)">
+                            Ver más
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</div>
+
+<!-- Contenedor donde se cargará el modal -->
+<div id="contenedorModal"></div>
+
+@section scripts {
+
+    <!-- JQuery (OBLIGATORIO PARA QUE FUNCIONE EL .get) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+        function abrirDetalle(id) {
+
+            console.log("Cargando modal del plato ID:", id);
+
+            $.get("/Home/DetallePlato", { id: id })
+                .done(function (html) {
+
+                    $("#contenedorModal").html(html);
+
+                    let modal = new bootstrap.Modal(document.getElementById("modalPlato"));
+                    modal.show();
+                })
+                .fail(function (err) {
+                    console.error("❌ Error al cargar modal:", err);
+                    alert("No se pudo abrir el detalle del plato.");
+                });
+        }
+    </script>
+
+}

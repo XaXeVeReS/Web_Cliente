@@ -1,0 +1,53 @@
+﻿@model List<WebClienteMVC.WCF_Apl_Dis.Cls_Promocion_Plato>
+
+<div class="container mt-4">
+
+    <h2 class="fw-bold text-center mb-4">Promociones Disponibles</h2>
+
+    <div class="row g-4">
+        @foreach (var promo in Model)
+        {
+            <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                <div class="card shadow-sm border-0 h-100">
+
+                   <img src="@(promo.Imagen != null
+                            ? "data:image/png;base64," + Convert.ToBase64String(promo.Imagen)
+                            : Url.Content("~/Recursos/no-imagen.png"))"
+                        class="card-img-top"
+                        style="height:180px; object-fit:cover;" />
+
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold">@promo.PromocionNombre</h5>
+
+                        <p class="text-success fw-bold">
+                            Desde @promo.Cantidad_Aplicable platos
+                        </p>
+
+                        <p class="fw-bold text-danger">
+                            Descuento: @(promo.Descuento * 100)%
+                        </p>
+
+                        <button class="btn btn-warning w-100 fw-bold"
+                                onclick="verPromo(@promo.Id_Promocion)">
+                            Ver más
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div id="contenedorModal"></div>
+@section scripts {
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        function verPromo(id) {
+            $.get("/Home/DetallePromocion", { idPromo: id }, function (html) {
+                $("#contenedorModal").html(html);
+                new bootstrap.Modal(document.getElementById("modalPromo")).show();
+            });
+        }
+    </script>
+ }
