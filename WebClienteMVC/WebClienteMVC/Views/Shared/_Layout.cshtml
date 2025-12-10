@@ -284,14 +284,19 @@
         }
 
         // AGREGAR PROMO
-        function agregarAComprasPromo(idPlato, nombre, descuento, precio, cant) {
+        function agregarAComprasPromo(idPlato, nombre, descuento, precio, cant, idpromo) {
             let existe = compras.find(x => x.id === idPlato && x.tipo === "promo");
             if (existe) {
                 existe.cantidad += 1;
             } else {
                 compras.push({
-                    id: idPlato, nombre: nombre, precio: precio, cantidad: cant,
-                    descuento: descuento, promocion: null, tipo: "promo"
+                    id: idPlato,
+                    nombre: nombre,
+                    precio: precio,
+                    cantidad: cant,
+                    descuento: descuento,
+                    promocion: idpromo,
+                    tipo: "promo"
                 });
             }
             guardarCarrito();

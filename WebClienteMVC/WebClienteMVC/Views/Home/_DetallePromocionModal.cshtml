@@ -109,9 +109,9 @@
                                 @promo.Id_Plato,
                                 '@promo.PromocionNombre',
                                 @promo.Descuento,
-                                @promo.PrecioConDescuento
-                            )"
-                            >
+                                @promo.PrecioConDescuento,
+                                @promo.Id_Promocion
+                            )">
                     ➕ Agregar Promoción
                 </button>
 
@@ -131,10 +131,10 @@
             input.value = v + n;
     }
 
-    function confirmarAgregarPromo(idPromo, nombrePromo, descuento, precioConDescuento) {
+    function confirmarAgregarPromo(idplato, nombrePromo, descuento, precioConDescuento, idpromo) {
         let cant = parseInt(document.getElementById("cantidadPromo").value);
 
-        agregarAComprasPromo(idPromo, nombrePromo, descuento, precioConDescuento, cant);
+        agregarAComprasPromo(idplato, nombrePromo, descuento, precioConDescuento, cant, idpromo);
 
         let modal = bootstrap.Modal.getInstance(document.getElementById("modalPromo"));
         modal.hide();

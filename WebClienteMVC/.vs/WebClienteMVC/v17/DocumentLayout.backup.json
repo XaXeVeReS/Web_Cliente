@@ -1,22 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Distribuidas\\WebClienteMVC\\",
+  "WorkspaceRootPath": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|D:\\Distribuidas\\WebClienteMVC\\webclientemvc\\controllers\\cuentacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\controllers\\cuentacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|c:\\users\\xaxeveres\\documents\\github\\web_cliente\\webclientemvc\\webclientemvc\\controllers\\ventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\controllers\\ventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|d:\\distribuidas\\webclientemvc\\webclientemvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\webclientemvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|d:\\distribuidas\\webclientemvc\\webclientemvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|c:\\users\\xaxeveres\\documents\\github\\web_cliente\\webclientemvc\\webclientemvc\\views\\home\\_detallepromocionmodal.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\views\\home\\_detallepromocionmodal.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|d:\\distribuidas\\webclientemvc\\webclientemvc\\views\\home\\estado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\views\\home\\estado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|c:\\users\\xaxeveres\\documents\\github\\web_cliente\\webclientemvc\\webclientemvc\\views\\home\\_detalleplato.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\views\\home\\_detalleplato.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|c:\\users\\xaxeveres\\documents\\github\\web_cliente\\webclientemvc\\webclientemvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,13 +38,39 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VentasController.cs",
+              "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Controllers\\VentasController.cs",
+              "RelativeDocumentMoniker": "WebClienteMVC\\Controllers\\VentasController.cs",
+              "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Controllers\\VentasController.cs",
+              "RelativeToolTip": "WebClienteMVC\\Controllers\\VentasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T06:27:03.806Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "_DetallePromocionModal.cshtml",
+              "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Home\\_DetallePromocionModal.cshtml",
+              "RelativeDocumentMoniker": "WebClienteMVC\\Views\\Home\\_DetallePromocionModal.cshtml",
+              "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Home\\_DetallePromocionModal.cshtml",
+              "RelativeToolTip": "WebClienteMVC\\Views\\Home\\_DetallePromocionModal.cshtml",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAIwHoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-10T06:28:41.295Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "HomeController.cs",
-              "DocumentMoniker": "D:\\Distribuidas\\WebClienteMVC\\WebClienteMVC\\Controllers\\HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "WebClienteMVC\\Controllers\\HomeController.cs",
-              "ToolTip": "D:\\Distribuidas\\WebClienteMVC\\WebClienteMVC\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Controllers\\HomeController.cs",
               "RelativeToolTip": "WebClienteMVC\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAwwFkAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-07T07:32:56.987Z",
               "EditorCaption": ""
@@ -49,45 +79,32 @@
         },
         {
           "DockedWidth": 186,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Estado.cshtml",
-              "DocumentMoniker": "D:\\Distribuidas\\WebClienteMVC\\WebClienteMVC\\Views\\Home\\Estado.cshtml",
-              "RelativeDocumentMoniker": "WebClienteMVC\\Views\\Home\\Estado.cshtml",
-              "ToolTip": "D:\\Distribuidas\\WebClienteMVC\\WebClienteMVC\\Views\\Home\\Estado.cshtml",
-              "RelativeToolTip": "WebClienteMVC\\Views\\Home\\Estado.cshtml",
-              "ViewState": "AgIAADwAAAAAAAAAAAAAwHEAAAAAAAAAAAAAAA==",
+              "Title": "_DetallePlato.cshtml",
+              "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Home\\_DetallePlato.cshtml",
+              "RelativeDocumentMoniker": "WebClienteMVC\\Views\\Home\\_DetallePlato.cshtml",
+              "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Home\\_DetallePlato.cshtml",
+              "RelativeToolTip": "WebClienteMVC\\Views\\Home\\_DetallePlato.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-10T00:24:03.973Z",
+              "WhenOpened": "2025-12-10T06:28:18.577Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\Distribuidas\\WebClienteMVC\\WebClienteMVC\\Views\\Shared\\_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "WebClienteMVC\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\Distribuidas\\WebClienteMVC\\WebClienteMVC\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "WebClienteMVC\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAD0BAAAAAAAAAAAAwHIBAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAE8BAAAAAAAAAAAAwEMBAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-12-09T22:55:53.244Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CuentaController.cs",
-              "DocumentMoniker": "D:\\Distribuidas\\WebClienteMVC\\WebClienteMVC\\Controllers\\CuentaController.cs",
-              "RelativeDocumentMoniker": "WebClienteMVC\\Controllers\\CuentaController.cs",
-              "ToolTip": "D:\\Distribuidas\\WebClienteMVC\\WebClienteMVC\\Controllers\\CuentaController.cs",
-              "RelativeToolTip": "WebClienteMVC\\Controllers\\CuentaController.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAswB8AAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T07:51:07.337Z",
               "EditorCaption": ""
             }
           ]

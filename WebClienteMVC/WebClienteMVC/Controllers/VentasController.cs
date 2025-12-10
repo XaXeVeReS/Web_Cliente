@@ -23,12 +23,10 @@ namespace WebClienteMVC.Controllers
                 Cls_Ventas venta = new Cls_Ventas
                 {
                     Id_Trabajador = null,
-
                     Id_Cliente = Convert.ToInt32(Session["IdUsuario"]),
-
                     Fecha_Pedido = DateTime.Now,
-                    Metodo_Pago = "EFECTIVO",
-                    Estado = "PENDIENTE",
+                    Metodo_Pago = "TARJETA",
+                    Estado = "Pendiente",
                     DetalleVenta = detalles.ToArray()
                 };
 
