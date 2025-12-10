@@ -86,5 +86,36 @@ namespace WebClienteMVC.Controllers
 
             return Json(new { ok = true, estado = venta.Estado }, JsonRequestBehavior.AllowGet);
         }
+        [HttpPost]
+        public JsonResult GuardarComentarioBD(int idVenta, string texto)
+        {
+            try
+            {
+                // 1. Validar que el usuario esté logueado
+                if (Session["IdUsuario"] == null)
+                {
+                    return Json(new { ok = false, msg = "La sesión ha expirado." });
+                }
+
+                // 2. Crear el objeto con los datos
+                Cls_Comentarios nuevoComentario = new Cls_Comentarios();
+
+                nuevoComentario.Id_Venta = idVenta;
+                nuevoComentario.Id_Usuario = Convert.ToInt32(Session["IdUsuario"]); // Sacamos el ID de la sesión
+                nuevoComentario.Comentario = texto;
+                nuevoComentario.Tipo = "VENTA"; // <--- REQUISITO: Tipo fijo "VENTA"
+
+                // 3. Llamar a tu servicio o lógica de inserción
+                // Asumo que tu 'cliente' tiene el método 'insertar_comentario' que arreglamos antes
+                Service1Client cliente = new Service1Client();
+                cliente.Insert_Comentario(nuevoComentario);
+
+                return Json(new { ok = true });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { ok = false, msg = ex.Message });
+            }
+        }
     }
 }

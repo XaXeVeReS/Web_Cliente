@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.Web.Security;
 using WebClienteMVC.Models;
+using WebClienteMVC.WCF_Apl_Dis;
 
 namespace WebClienteMVC.Controllers
 {
@@ -23,11 +24,13 @@ namespace WebClienteMVC.Controllers
             try
             {
                 int IdUsuario = await datos.LoginAsync(model.Usuario, model.Clave);
-
+                var cliente = new Service1Client();
                 if (IdUsuario > 0)
                 {
+                    Cls_Usuarios c = cliente.Search_User(IdUsuario);
                     Session["IdUsuario"] = IdUsuario;
-                    Session["Usuario"] = model.Usuario;
+                    Session["Usuario"] = c.Nombre;
+
                    
                     FormsAuthentication.SetAuthCookie(model.Usuario, false);
                     return RedirectToAction("Platos", "Home");

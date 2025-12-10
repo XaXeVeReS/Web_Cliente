@@ -16,6 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
         html, body {
@@ -217,6 +218,9 @@
     </div>
 
     <script>
+        // ==========================================
+        // 1. LÓGICA DEL PANEL LATERAL
+        // ==========================================
         const panel = document.getElementById("panelCompras");
         const tabla = document.querySelector(".compras-table");
         const titulo = document.getElementById("tituloCompras");
@@ -239,8 +243,8 @@
             }
         }
 
-        aplicarResponsive();
         window.addEventListener("resize", aplicarResponsive);
+        aplicarResponsive(); // Ejecutar al inicio
 
         btn.addEventListener("click", () => {
             oculto = !oculto;
@@ -253,12 +257,16 @@
                 panel.classList.remove("panel-collapsed");
                 tabla.classList.remove("table-hidden");
                 titulo.classList.remove("titulo-hidden");
+                btn.classList.remove("toggle-floating");
             }
         });
 
+        // ==========================================
+        // 2. LÓGICA DEL CARRITO DE COMPRAS
+        // ==========================================
         let compras = [];
 
-        // CARGAR CARRITO
+        // Cargar carrito guardado
         if (sessionStorage.getItem("carrito")) {
             compras = JSON.parse(sessionStorage.getItem("carrito"));
             actualizarTabla();
@@ -268,7 +276,6 @@
             sessionStorage.setItem("carrito", JSON.stringify(compras));
         }
 
-        // AGREGAR PLATO
         function agregarACompras(id, nombre, precio, cantidad = 1) {
             let existe = compras.find(x => x.id === id && x.tipo === "plato");
             if (existe) {
@@ -281,63 +288,87 @@
             }
             guardarCarrito();
             actualizarTabla();
+
+            // Feedback visual pequeño
+            const Toast = Swal.mixin({
+                toast: true, position: 'top-end', showConfirmButton: false, timer: 1500
+            });
+            Toast.fire({ icon: 'success', title: 'Agregado al carrito' });
         }
 
-        // AGREGAR PROMO
         function agregarAComprasPromo(idPlato, nombre, descuento, precio, cant, idpromo) {
             let existe = compras.find(x => x.id === idPlato && x.tipo === "promo");
             if (existe) {
                 existe.cantidad += 1;
             } else {
                 compras.push({
-                    id: idPlato,
-                    nombre: nombre,
-                    precio: precio,
-                    cantidad: cant,
-                    descuento: descuento,
-                    promocion: idpromo,
-                    tipo: "promo"
+                    id: idPlato, nombre: nombre, precio: precio, cantidad: cant,
+                    descuento: descuento, promocion: idpromo, tipo: "promo"
                 });
             }
             guardarCarrito();
             actualizarTabla();
+
+            Swal.fire({
+                icon: 'success', title: '¡Promoción agregada!', showConfirmButton: false, timer: 1500
+            });
         }
 
-        // ELIMINAR
         function eliminarDelCarrito(id, tipo) {
             compras = compras.filter(p => !(p.id === id && p.tipo === tipo));
             guardarCarrito();
             actualizarTabla();
         }
 
-        // ACTUALIZAR HTML
         function actualizarTabla() {
-            let tabla = document.getElementById("tablaCompras");
+            let tablaBody = document.getElementById("tablaCompras");
             let totalSpan = document.getElementById("totalCompras");
-            tabla.innerHTML = "";
+
+            if(!tablaBody || !totalSpan) return; // Evita errores si no encuentra la tabla
+
+            tablaBody.innerHTML = "";
             let total = 0;
 
             compras.forEach(item => {
                 let subtotal = item.precio * item.cantidad;
                 total += subtotal;
-                tabla.innerHTML += `
+                tablaBody.innerHTML += `
                     <tr>
                         <td>${item.cantidad}</td>
-                        <td>${item.tipo === "promo" ? "PROMO-" : ""}${item.nombre}</td>
+                        <td style="font-size:0.9em;">${item.tipo === "promo" ? "PROMO " : ""}${item.nombre}</td>
                         <td>S/ ${subtotal.toFixed(2)}</td>
-                        <td><button class="btn btn-danger btn-sm" onclick="eliminarDelCarrito(${item.id}, '${item.tipo}')">X</button></td>
+                        <td><button class="btn btn-danger btn-sm py-0" onclick="eliminarDelCarrito(${item.id}, '${item.tipo}')">×</button></td>
                     </tr>`;
             });
             totalSpan.innerHTML = "S/ " + total.toFixed(2);
         }
 
-        // CONFIRMAR VENTA
+        // ==========================================
+        // 3. CONFIRMAR VENTA (Aquí estaba el posible error)
+        // ==========================================
         function confirmarVenta() {
+            // A. Verificar si ya tiene un pedido activo (Bloqueo)
+            if (sessionStorage.getItem("ventaActual")) {
+                Swal.fire({
+                    title: '¡Pedido en curso!',
+                    text: 'Ya tienes un pedido pendiente. Debes esperar a que finalice.',
+                    icon: 'warning',
+                    confirmButtonText: 'Ver estado'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "@Url.Action("Estado", "Home")";
+                    }
+                });
+                return; // IMPORTANTE: Detiene la función aquí
+            }
+
+            // B. Verificar carrito vacío
             if (compras.length === 0) {
-                alert("El carrito está vacío.");
+                Swal.fire('Carrito vacío', 'Agrega algún plato antes de pedir.', 'info');
                 return;
             }
 
+            // C. Preparar datos
             let detalle = compras.map(x => ({
                 Id_Plato: x.id,
                 Precio_Unitario: x.precio,
@@ -346,25 +377,38 @@
                 Id_Promocion: x.promocion
             }));
 
-            // AQUÍ SE USA JQUERY ($.ajax)
+            // D. Enviar al servidor
             $.ajax({
                 url: "/Ventas/RegistrarVenta",
                 method: "POST",
                 data: { json: JSON.stringify(detalle) },
                 success: function (r) {
                     if (r.ok) {
+                        // 1. Guardar ID venta para bloquear futuros pedidos
                         sessionStorage.setItem("ventaActual", r.idVenta);
-                        alert("Venta registrada correctamente ✔");
+
+                        // 2. Limpiar carrito
                         compras = [];
                         sessionStorage.removeItem("carrito");
                         actualizarTabla();
+
+                        // 3. Alerta de Éxito y Redirección
+                        Swal.fire({
+                            title: '¡Pedido Enviado!',
+                            text: 'Tu orden se ha registrado correctamente.',
+                            icon: 'success',
+                            confirmButtonText: 'Ver estado del pedido'
+                        }).then(() => {
+                            window.location.href = "@Url.Action("Estado", "Home")";
+                        });
+
                     } else {
-                        alert("Error: " + r.error);
+                        Swal.fire('Error', 'El servidor respondió: ' + r.error, 'error');
                     }
                 },
                 error: function (xhr) {
-                    alert("Error inesperado. Revisa que iniciaste sesión.");
                     console.error(xhr);
+                    Swal.fire('Error de conexión', 'No se pudo conectar con el servidor. Verifica tu sesión.', 'error');
                 }
             });
         }

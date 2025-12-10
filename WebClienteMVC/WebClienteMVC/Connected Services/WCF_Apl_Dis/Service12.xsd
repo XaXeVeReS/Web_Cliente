@@ -513,8 +513,7 @@
   <xs:element name="Get_Comentarios">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Contexto" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Id_Relacionado" type="xs:int" />
+        <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

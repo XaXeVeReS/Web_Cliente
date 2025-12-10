@@ -3,111 +3,209 @@
 }
 
 <div id="sin-pedido" class="text-center mt-5" style="display:none;">
-    <h1 class="fw-bold">Sin Pedido</h1>
-    <img src="/Recursos/sinpedido.png" style="max-width:300px;" />
+    <h1 class="fw-bold">Sin Pedido en curso</h1>
+    <img src="/Recursos/sinpedido.png" style="max-width:300px;" alt="Sin pedido" />
+    <h3 class="mt-3 text-muted">No tienes pedidos activos en este momento.</h3>
+    <a href="@Url.Action("Platos", "Home")" class="btn btn-primary btn-lg mt-3 shadow">Ir a la Carta</a>
 </div>
 
 <div id="contenedor-estado" class="text-center mt-5" style="display:none;">
 
-    <h1 id="tituloEstado" class="fw-bold"></h1>
+    <h1 id="tituloEstado" class="fw-bold text-primary">Cargando estado...</h1>
 
-    <img id="imagenEstado" src="" style="max-width:260px;" />
+    <div class="my-4">
+        <img id="imagenEstado" src="" class="img-fluid" style="max-width:260px;" alt="Estado del pedido" />
+    </div>
 
-    <h3 id="mensajeEstado" class="fw-bold mt-3"></h3>
+    <h3 id="mensajeEstado" class="fw-bold mt-3 text-dark"></h3>
 
-    <button id="btnCancelar" class="btn btn-danger mt-3" onclick="cancelarPedido()">Cancelar Pedido</button>
-    <button id="btnVer" class="btn btn-warning mt-3" onclick="verPedido()">Ver Pedido</button>
-
-    <div id="comentarios" class="mt-4">
-        <h2>Comentarios</h2>
-
-        <textarea id="txtComentario" class="form-control"
-                  placeholder="Escribe tu comentario"></textarea>
-
-        <button class="btn btn-primary mt-2" onclick="guardarComentario()">
-            Enviar comentario
+    <div id="acciones-pedido">
+        <button id="btnCancelar" class="btn btn-danger mt-3 px-4" onclick="cancelarPedido()">
+            Cancelar Pedido
         </button>
+    </div>
+
+    <div id="accion-finalizar" style="display:none;">
+        <button class="btn btn-success btn-lg mt-4 fw-bold shadow" onclick="finalizarCiclo()">
+            ¡Recibido! Hacer nuevo pedido
+        </button>
+    </div>
+
+    <div id="comentarios" class="mt-5 w-50 mx-auto card p-4 shadow-sm">
+        <h4 class="fw-bold mb-3">¿Cómo va tu experiencia?</h4>
+
+        <div id="bloque-formulario">
+            <textarea id="txtComentario" class="form-control" rows="3"
+                      placeholder="Escribe aquí tu comentario..."></textarea>
+            <button class="btn btn-primary w-100 mt-3" onclick="guardarComentario()">
+                Enviar comentario
+            </button>
+        </div>
+
+        <div id="bloque-agradecimiento" class="alert alert-success mt-3 mb-0" style="display:none;">
+            <h4 class="fw-bold">¡Gracias!</h4>
+            <p class="m-0">Lo tendremos presente para mejorar.</p>
+        </div>
     </div>
 </div>
 
-
 @section scripts{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
-
-        // ================================
-        // 1️⃣ OBTENER LA VENTA
-        // ================================
+        // Variables globales
         let idVenta = sessionStorage.getItem("ventaActual");
+        let intervalo = null;
 
-        if (!idVenta) {
-            // No hay pedido registrado
-            document.getElementById("sin-pedido").style.display = "block";
+        // Referencias a los elementos HTML
+        const divSinPedido = document.getElementById("sin-pedido");
+        const divConEstado = document.getElementById("contenedor-estado");
+
+        // --- VALIDACIÓN INICIAL PARA EVITAR TU ERROR ---
+        if (divSinPedido && divConEstado) {
+
+            if (!idVenta) {
+                // CASO A: No hay venta -> Mostrar pantalla "Sin Pedido"
+                divSinPedido.style.display = "block";
+            } else {
+                // CASO B: Hay venta -> Mostrar pantalla "Estado"
+                divConEstado.style.display = "block";
+                actualizarEstado(); // Ejecutar inmediatamente
+                intervalo = setInterval(actualizarEstado, 5000); // Repetir cada 5 seg
+            }
+
         } else {
-            // Hay pedido → mostrar contenedor
-            document.getElementById("contenedor-estado").style.display = "block";
-            actualizarEstado();
-            setInterval(actualizarEstado, 5000);
+            console.error("ERROR: No se encontraron los DIVs en el HTML. Verifica que copiaste todo el código.");
         }
 
+        // --- FUNCIONES ---
 
-        // ===========================================
-        // 2️⃣ ACTUALIZAR ESTADO DEL PEDIDO
-        // ===========================================
         function actualizarEstado() {
+            if (!idVenta) return;
 
-            $.get("/Ventas/EstadoVentaJson", { id: idVenta }, function (data) {
-
+            $.get("/Home/EstadoVentaJson", { id: idVenta }, function (data) {
                 if (!data.ok) return;
 
                 let estado = data.estado;
 
-                if (estado === "PENDIENTE" || estado === "Procesando") {
-
-                    $("#tituloEstado").text("Preparando…");
+                // 1. ESTADO EN PROCESO
+                if (estado === "Pendiente" || estado === "Procesando" || estado === "Terminado") {
+                    $("#tituloEstado").text("Preparando tu pedido...");
                     $("#imagenEstado").attr("src", "/Recursos/preparando.png");
-                    $("#mensajeEstado").text("Tiempo estimado: " + data.horaLista);
+                    $("#mensajeEstado").text("Estamos trabajando en ello. " + (data.horaLista ? "Listo a las: " + data.horaLista : ""));
+
+                    $("#acciones-pedido").show();
+                    $("#accion-finalizar").hide();
                 }
+                // 2. ESTADO FINALIZADO (Entregado)
                 else if (estado === "Entregado") {
-
-                    $("#tituloEstado").text("Listo");
+                    $("#tituloEstado").text("¡Pedido Listo!");
                     $("#imagenEstado").attr("src", "/Recursos/listo.png");
-                    $("#mensajeEstado").text("Su pedido ya puede recogerse");
-                }
-                else if (estado === "CANCELADO") {
+                    $("#mensajeEstado").text("Tu pedido ha sido completado.");
 
-                    $("#tituloEstado").text("Cancelado");
+                    $("#acciones-pedido").hide();
+                    $("#accion-finalizar").show();
+
+                    if(intervalo) clearInterval(intervalo);
+                }
+                // 3. ESTADO CANCELADO
+                else if (estado === "Cancelado") {
+                    $("#tituloEstado").text("Pedido Cancelado");
                     $("#imagenEstado").attr("src", "/Recursos/cancelado.png");
-                    $("#mensajeEstado").text("El pedido fue cancelado");
+                    $("#mensajeEstado").text("Este pedido fue cancelado.");
+
+                    $("#acciones-pedido").hide();
+                    $("#accion-finalizar").show();
+                    $("#accion-finalizar button").text("Hacer otro pedido");
+
+                    if(intervalo) clearInterval(intervalo);
                 }
 
                 validarComentario();
             });
         }
 
+        // Esta función desbloquea el sistema para comprar de nuevo
+        function finalizarCiclo() {
+            sessionStorage.removeItem("ventaActual");
+            localStorage.removeItem("comentario_hecho_" + idVenta);
 
-        // ===========================================
-        // 3️⃣ VALIDAR SI YA COMENTÓ
-        // ===========================================
+            // Redirigir a la carta
+            window.location.href = "@Url.Action("Platos", "Home")";
+        }
+
+        function cancelarPedido() {
+             Swal.fire({
+                title: '¿Cancelar pedido?',
+                text: "Esta acción no se puede deshacer.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Sí, cancelar',
+                cancelButtonText: 'No, esperar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Aquí solo limpiamos visualmente.
+                    // Lo ideal sería llamar a un Action en el servidor para cambiar estado a CANCELADO en BD.
+                    finalizarCiclo();
+                    Swal.fire('Cancelado', 'Tu pedido ha sido cancelado.', 'success');
+                }
+            });
+        }
+
+        // --- LÓGICA DE COMENTARIOS ---
+
         function validarComentario() {
-            if (localStorage.getItem("comentario_" + idVenta)) {
-                $("#txtComentario").prop("disabled", true);
+            // Si ya comentó, mostrar directamente el agradecimiento
+            if (localStorage.getItem("comentario_hecho_" + idVenta)) {
+                mostrarAgradecimiento();
             }
         }
 
-        // ===========================================
-        // 4️⃣ GUARDAR COMENTARIO
-        // ===========================================
         function guardarComentario() {
+            let txt = $("#txtComentario").val();
 
-            let com = $("#txtComentario").val();
+            if (txt.trim() === "") {
+                Swal.fire('Ups...', 'El comentario no puede estar vacío.', 'warning');
+                return;
+            }
 
-            if (com.trim() === "") return;
+            $.ajax({
+                url: "/Home/GuardarComentarioBD",
+                type: "POST",
+                data: {
+                    idVenta: idVenta,
+                    texto: txt
+                },
+                success: function (resp) {
+                    if (resp.ok) {
+                        // Guardar marca en memoria
+                        localStorage.setItem("comentario_hecho_" + idVenta, "true");
 
-            localStorage.setItem("comentario_" + idVenta, com);
-            $("#txtComentario").prop("disabled", true);
+                        // Alerta bonita
+                        Swal.fire({
+                            title: '¡Recibido!',
+                            text: 'Gracias por ayudarnos a mejorar.',
+                            icon: 'success',
+                            timer: 2500,
+                            showConfirmButton: false
+                        });
 
-            alert("Gracias por su comentario!");
+                        mostrarAgradecimiento();
+                    } else {
+                        Swal.fire('Error', resp.msg, 'error');
+                    }
+                },
+                error: function (e) {
+                    Swal.fire('Error', 'No se pudo conectar con el servidor', 'error');
+                }
+            });
         }
 
+        function mostrarAgradecimiento() {
+            $("#bloque-formulario").hide();
+            $("#bloque-agradecimiento").fadeIn();
+        }
     </script>
 }
