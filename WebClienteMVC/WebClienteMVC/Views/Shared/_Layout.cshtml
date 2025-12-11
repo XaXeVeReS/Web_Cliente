@@ -120,6 +120,41 @@
                 font-weight: bold;
                 text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
             }
+
+        /* Fondo oscuro que cubre toda la pantalla */
+        #modalOverlay_FormPago {
+            position: fixed;
+            inset: 0; 
+            background: rgba(0, 0, 0, 0.5);
+            display: none; 
+            justify-content: center; 
+            align-items: center; 
+
+            z-index: 9999; 
+        }
+
+        /* Contenido del modal centrado */
+        #modalConfirmacionPago {
+            background: white;
+            width: 60vw; 
+            height: 70vh; 
+
+            padding: 20px;
+            border-radius: 12px;
+            overflow-y: auto; 
+
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        #modalConfirmacionPago {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 350px;
+            max-width: 90%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+        }
+
     </style>
 
 </head>
@@ -199,9 +234,61 @@
                         Total: <span id="totalCompras">S/ 0.00</span>
                     </h4>
                     <button class="btn btn-success w-100 mt-2 fw-bold"
-                            onclick="confirmarVenta()">
+                            onclick="ComfirmarPago()">
                         Realizar Pedido
                     </button>
+                </div>
+                <div id="modalOverlay_FormPago">
+                    <div id="modalConfirmacionPago">
+                        <div class="modal-content">
+                            <h3 class="fw-bold">Confirmar Pedido</h3>
+                            <p>¿Desea confirmar la venta?</p>
+
+                            <table class="table table-bordered tabla-compras">
+                                <thead>
+                                    <tr>
+                                        <th>Plato</th>
+                                        <th>Precio</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablaConfirmarPago">
+                                </tbody>
+                            </table>
+                            <h4 class="text-end fw-bold mt-2">
+                                Total: <span id="CostototalPago">S/ 0.00</span>
+                            </h4>
+
+                            <label>Tipo de Tarjeta</label>
+                            <select id="selectTipoTarjeta" class="form-control fw-bold mb-2">
+                                <option value="">Seleccione...</option>
+                                <option value="BCP">BCP</option>
+                                <option value="BN">Banco de la Nación</option>
+                            </select>
+
+                            <label>Nr. de Tarjeta</label>
+                            <input id="txtNrtarjeta"
+                                   type="text"
+                                   class="form-control text-center fw-bold fs-5"
+                                   style="width:auto;margin-bottom: 10px" />
+
+                            <label>Pago Realizado</label>
+                            <input id="txtPagoRealizado"
+                                   type="number"
+                                   class="form-control text-center fw-bold fs-5"
+                                   style="width: auto; margin-bottom: 10px"/>
+
+                            <label>Codigo Pin</label>
+                            <input id="txtCodigoPin"
+                                   type="password"
+                                   class="form-control text-center fw-bold fs-5"
+                                   style="width: auto; margin-bottom: 10px"/>
+
+                            <div class="text-end mt-3">
+                                <button class="btn btn-secondary" onclick="cerrarModal_FormPago()">Cancelar</button>
+                                <button class="btn btn-primary" onclick="confirmarVenta()">Aceptar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -321,14 +408,52 @@
                 let subtotal = item.precio * item.cantidad;
                 total += subtotal;
                 tabla.innerHTML += `
-                    <tr>
-                        <td>${item.cantidad}</td>
-                        <td>${item.tipo === "promo" ? "PROMO-" : ""}${item.nombre}</td>
-                        <td>S/ ${subtotal.toFixed(2)}</td>
-                        <td><button class="btn btn-danger btn-sm" onclick="eliminarDelCarrito(${item.id}, '${item.tipo}')">X</button></td>
-                    </tr>`;
+                            <tr>
+                                <td>${item.cantidad}</td>
+                                <td>${item.tipo === "promo" ? "PROMO-" : ""}${item.nombre}</td>
+                                <td>S/ ${subtotal.toFixed(2)}</td>
+                                <td><button class="btn btn-danger btn-sm" onclick="eliminarDelCarrito(${item.id}, '${item.tipo}')">X</button></td>
+                            </tr>`;
             });
             totalSpan.innerHTML = "S/ " + total.toFixed(2);
+        }
+
+        // ABRIR FORM PAGO
+        function abrirModal_FormPago() {
+            document.getElementById("modalOverlay_FormPago").style.display = "flex";
+        }
+
+        // CERRAR FORM PAGO
+        function cerrarModal_FormPago() {
+            document.getElementById("modalOverlay_FormPago").style.display = "none";
+        }
+
+        function cargarTablaConfirmarPago() {
+            const tbody = document.getElementById("tablaConfirmarPago");
+            tbody.innerHTML = ""; 
+
+            let total = 0;
+            compras.forEach(item => {
+                const fila = document.createElement("tr");
+                let costo = item.precio * item.cantidad * (1 - item.descuento);
+                total += costo;
+                fila.innerHTML = `<td>${item.nombre}</td><td>S/ ${costo.toFixed(2)}</td>`;
+
+                tbody.appendChild(fila);
+            });
+            document.getElementById("CostototalPago").innerText = total;
+            document.getElementById("txtPagoRealizado").ariaValueText = total;
+        }
+
+        function ComfirmarPago() {
+
+            if (compras.length === 0) {
+                alert("El carrito está vacío.");
+                return;
+            }
+
+            cargarTablaConfirmarPago()
+            abrirModal_FormPago();
         }
 
         // CONFIRMAR VENTA
@@ -346,11 +471,13 @@
                 Id_Promocion: x.promocion
             }));
 
+            let monto = document.getElementById("txtPagoRealizado").ariaValueText;
+
             // AQUÍ SE USA JQUERY ($.ajax)
             $.ajax({
                 url: "/Ventas/RegistrarVenta",
                 method: "POST",
-                data: { json: JSON.stringify(detalle) },
+                data: { json: JSON.stringify(detalle),Monto_Total: monto},
                 success: function (r) {
                     if (r.ok) {
                         sessionStorage.setItem("ventaActual", r.idVenta);

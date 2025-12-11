@@ -27,7 +27,8 @@ namespace WebClienteMVC.Controllers
                     Fecha_Pedido = DateTime.Now,
                     Metodo_Pago = "TARJETA",
                     Estado = "Pendiente",
-                    DetalleVenta = detalles.ToArray()
+                    DetalleVenta = detalles.ToArray(),
+                    Monto_Total = Monto_Total
                 };
 
                 // 💥 Aquí se envía EXPLÍCITAMENTE como tu test
