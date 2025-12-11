@@ -1676,22 +1676,22 @@ namespace WebClienteMVC.WCF_Apl_Dis {
         private string ComentarioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ContextoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime Fecha_ComentarioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int Id_ComentarioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Id_RelacionadoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int Id_UsuarioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string txt_UsuarioField;
+        private int Id_VentaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Nombre_UsuarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TipoField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1712,19 +1712,6 @@ namespace WebClienteMVC.WCF_Apl_Dis {
                 if ((object.ReferenceEquals(this.ComentarioField, value) != true)) {
                     this.ComentarioField = value;
                     this.RaisePropertyChanged("Comentario");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Contexto {
-            get {
-                return this.ContextoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ContextoField, value) != true)) {
-                    this.ContextoField = value;
-                    this.RaisePropertyChanged("Contexto");
                 }
             }
         }
@@ -1756,19 +1743,6 @@ namespace WebClienteMVC.WCF_Apl_Dis {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_Relacionado {
-            get {
-                return this.Id_RelacionadoField;
-            }
-            set {
-                if ((this.Id_RelacionadoField.Equals(value) != true)) {
-                    this.Id_RelacionadoField = value;
-                    this.RaisePropertyChanged("Id_Relacionado");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Id_Usuario {
             get {
                 return this.Id_UsuarioField;
@@ -1782,14 +1756,40 @@ namespace WebClienteMVC.WCF_Apl_Dis {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string txt_Usuario {
+        public int Id_Venta {
             get {
-                return this.txt_UsuarioField;
+                return this.Id_VentaField;
             }
             set {
-                if ((object.ReferenceEquals(this.txt_UsuarioField, value) != true)) {
-                    this.txt_UsuarioField = value;
-                    this.RaisePropertyChanged("txt_Usuario");
+                if ((this.Id_VentaField.Equals(value) != true)) {
+                    this.Id_VentaField = value;
+                    this.RaisePropertyChanged("Id_Venta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombre_Usuario {
+            get {
+                return this.Nombre_UsuarioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Nombre_UsuarioField, value) != true)) {
+                    this.Nombre_UsuarioField = value;
+                    this.RaisePropertyChanged("Nombre_Usuario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Tipo {
+            get {
+                return this.TipoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TipoField, value) != true)) {
+                    this.TipoField = value;
+                    this.RaisePropertyChanged("Tipo");
                 }
             }
         }
@@ -2886,10 +2886,10 @@ namespace WebClienteMVC.WCF_Apl_Dis {
         System.Threading.Tasks.Task Delete_ComentarioAsync(int Id_Comentario);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Comentarios", ReplyAction="http://tempuri.org/IService1/Get_ComentariosResponse")]
-        WebClienteMVC.WCF_Apl_Dis.Cls_Comentarios[] Get_Comentarios(string Contexto, int Id_Relacionado);
+        WebClienteMVC.WCF_Apl_Dis.Cls_Comentarios[] Get_Comentarios(string Tipo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Comentarios", ReplyAction="http://tempuri.org/IService1/Get_ComentariosResponse")]
-        System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_Comentarios[]> Get_ComentariosAsync(string Contexto, int Id_Relacionado);
+        System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_Comentarios[]> Get_ComentariosAsync(string Tipo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_KPI_Dinamico", ReplyAction="http://tempuri.org/IService1/Get_KPI_DinamicoResponse")]
         WebClienteMVC.WCF_Apl_Dis.Cls_KPI_Dinamico_Result Get_KPI_Dinamico(System.Nullable<System.DateTime> FechaInicio, System.Nullable<System.DateTime> FechaFin, System.Nullable<int> IdCliente, System.Nullable<int> IdUsuario, System.Nullable<int> IdPlato);
@@ -3251,12 +3251,12 @@ namespace WebClienteMVC.WCF_Apl_Dis {
             return base.Channel.Delete_ComentarioAsync(Id_Comentario);
         }
         
-        public WebClienteMVC.WCF_Apl_Dis.Cls_Comentarios[] Get_Comentarios(string Contexto, int Id_Relacionado) {
-            return base.Channel.Get_Comentarios(Contexto, Id_Relacionado);
+        public WebClienteMVC.WCF_Apl_Dis.Cls_Comentarios[] Get_Comentarios(string Tipo) {
+            return base.Channel.Get_Comentarios(Tipo);
         }
         
-        public System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_Comentarios[]> Get_ComentariosAsync(string Contexto, int Id_Relacionado) {
-            return base.Channel.Get_ComentariosAsync(Contexto, Id_Relacionado);
+        public System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_Comentarios[]> Get_ComentariosAsync(string Tipo) {
+            return base.Channel.Get_ComentariosAsync(Tipo);
         }
         
         public WebClienteMVC.WCF_Apl_Dis.Cls_KPI_Dinamico_Result Get_KPI_Dinamico(System.Nullable<System.DateTime> FechaInicio, System.Nullable<System.DateTime> FechaFin, System.Nullable<int> IdCliente, System.Nullable<int> IdUsuario, System.Nullable<int> IdPlato) {

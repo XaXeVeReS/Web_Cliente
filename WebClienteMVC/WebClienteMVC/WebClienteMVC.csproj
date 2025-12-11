@@ -138,7 +138,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CambiarPasswordModel.cs" />
-    <Compile Include="Models\EstadoPedidoModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RecuperarModel.cs" />
     <Compile Include="Models\RegistrarModel.cs" />
@@ -254,7 +253,6 @@
     <Content Include="Views\Home\Promociones.cshtml" />
     <Content Include="Views\Home\Platos.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\Util\_ModalError.cshtml" />
     <Content Include="Views\Shared\_ModalError.cshtml" />
     <Content Include="Views\Cuenta\Registrar.cshtml" />
     <Content Include="Views\Cuenta\Recuperar.cshtml" />
@@ -264,8 +262,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\DetallePLato\" />
-    <Folder Include="Views\Ventas\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

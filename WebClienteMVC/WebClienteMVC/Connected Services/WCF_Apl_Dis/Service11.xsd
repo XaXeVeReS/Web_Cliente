@@ -198,12 +198,12 @@
   <xs:complexType name="Cls_Comentarios">
     <xs:sequence>
       <xs:element minOccurs="0" name="Comentario" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Contexto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Fecha_Comentario" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Id_Comentario" type="xs:int" />
-      <xs:element minOccurs="0" name="Id_Relacionado" type="xs:int" />
       <xs:element minOccurs="0" name="Id_Usuario" type="xs:int" />
-      <xs:element minOccurs="0" name="txt_Usuario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Venta" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre_Usuario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Cls_Comentarios" nillable="true" type="tns:Cls_Comentarios" />
