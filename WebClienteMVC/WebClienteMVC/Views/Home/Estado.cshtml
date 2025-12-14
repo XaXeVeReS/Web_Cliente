@@ -53,33 +53,56 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
-        // Variables globales
-        let idVenta = sessionStorage.getItem("ventaActual");
+        // ---------------------------------------------------------
+        // 1. LÓGICA DE INICIO: PRIORIDAD AL SERVIDOR
+        // ---------------------------------------------------------
+
+        // Capturamos el ID que nos manda el Controller (desde la BD)
+        // El '0' es un valor por defecto en caso de que venga null
+        let idVentaServer = parseInt('@(ViewBag.IdVentaActiva ?? 0)');
+        let idVenta = 0;
+
+        // Si la BD dice que hay pedido, ese manda (y actualizamos el navegador)
+        if (idVentaServer > 0) {
+            idVenta = idVentaServer;
+            sessionStorage.setItem("ventaActual", idVenta);
+            console.log("Pedido recuperado del servidor: " + idVenta);
+        } else {
+            // Si la BD dice que no hay nada, limpiamos la basura local
+            sessionStorage.removeItem("ventaActual");
+            idVenta = null;
+        }
+
         let intervalo = null;
+        let estadoAnterior = null;
 
         // Referencias a los elementos HTML
         const divSinPedido = document.getElementById("sin-pedido");
         const divConEstado = document.getElementById("contenedor-estado");
 
-        // --- VALIDACIÓN INICIAL PARA EVITAR TU ERROR ---
+        // ---------------------------------------------------------
+        // 2. CONTROL VISUAL (MOSTRAR U OCULTAR PANTALLAS)
+        // ---------------------------------------------------------
         if (divSinPedido && divConEstado) {
-
             if (!idVenta) {
-                // CASO A: No hay venta -> Mostrar pantalla "Sin Pedido"
+                // CASO A: No hay venta activa
                 divSinPedido.style.display = "block";
+                divConEstado.style.display = "none";
             } else {
-                // CASO B: Hay venta -> Mostrar pantalla "Estado"
+                // CASO B: Hay venta activa
+                divSinPedido.style.display = "none";
                 divConEstado.style.display = "block";
-                actualizarEstado(); // Ejecutar inmediatamente
-                intervalo = setInterval(actualizarEstado, 5000); // Repetir cada 5 seg
-            }
 
+                actualizarEstado(); // Ejecutar ya
+                intervalo = setInterval(actualizarEstado, 5000); // Repetir
+            }
         } else {
-            console.error("ERROR: No se encontraron los DIVs en el HTML. Verifica que copiaste todo el código.");
+            console.error("ERROR: No se encontraron los DIVs.");
         }
 
-        // --- FUNCIONES ---
-
+        // ---------------------------------------------------------
+        // 3. FUNCIÓN PRINCIPAL DE ACTUALIZACIÓN
+        // ---------------------------------------------------------
         function actualizarEstado() {
             if (!idVenta) return;
 
@@ -88,35 +111,54 @@
 
                 let estado = data.estado;
 
-                // 1. ESTADO EN PROCESO
-                if (estado === "Pendiente" || estado === "Procesando" || estado === "Terminado") {
-                    $("#tituloEstado").text("Preparando tu pedido...");
-                    $("#imagenEstado").attr("src", "/Recursos/preparando.png");
-                    $("#mensajeEstado").text("Estamos trabajando en ello. " + (data.horaLista ? "Listo a las: " + data.horaLista : ""));
+                // --- DETECTAR CAMBIO PARA RECARGAR LA PÁGINA ---
+                if (estadoAnterior !== null && estadoAnterior !== estado) {
+                    console.log("El estado cambió de " + estadoAnterior + " a " + estado);
+                    location.reload();
+                    return;
+                }
+                estadoAnterior = estado;
+
+                // --- LÓGICA DE ESTADOS ESPECÍFICOS ---
+
+                // A. ESTADOS ACTIVOS (Pedido vivo)
+                if (estado === "Pendiente") {
+                    $("#tituloEstado").text("Pedido Recibido");
+                    $("#imagenEstado").attr("src", "/Recursos/pendiente.png");
+                    $("#mensajeEstado").text("Estamos validando tu pedido. " + (data.horaLista ? "Hora aprox: " + data.horaLista : ""));
 
                     $("#acciones-pedido").show();
                     $("#accion-finalizar").hide();
                 }
-                // 2. ESTADO FINALIZADO (Entregado)
+                else if (estado === "Procesando") {
+                    $("#tituloEstado").text("Cocinando...");
+                    $("#imagenEstado").attr("src", "/Recursos/preparando.png");
+                    $("#mensajeEstado").text("El chef está preparando tus platos.");
+
+                    $("#acciones-pedido").show();
+                    $("#accion-finalizar").hide();
+                }
+                // B. ESTADO EXITOSO (Fin del ciclo)
                 else if (estado === "Entregado") {
-                    $("#tituloEstado").text("¡Pedido Listo!");
-                    $("#imagenEstado").attr("src", "/Recursos/listo.png");
-                    $("#mensajeEstado").text("Tu pedido ha sido completado.");
+                    $("#tituloEstado").text("¡Pedido Entregado!");
+                    $("#imagenEstado").attr("src", "/Recursos/Listo.png");
+                    $("#mensajeEstado").text("¡Buen provecho! Tu pedido ha sido completado.");
 
                     $("#acciones-pedido").hide();
                     $("#accion-finalizar").show();
+                    $("#accion-finalizar button").text("¡Estuvo delicioso! Pedir más");
 
                     if(intervalo) clearInterval(intervalo);
                 }
-                // 3. ESTADO CANCELADO
+                // C. ESTADO FALLIDO (Fin del ciclo)
                 else if (estado === "Cancelado") {
                     $("#tituloEstado").text("Pedido Cancelado");
                     $("#imagenEstado").attr("src", "/Recursos/cancelado.png");
-                    $("#mensajeEstado").text("Este pedido fue cancelado.");
+                    $("#mensajeEstado").text("Lo sentimos, este pedido fue cancelado.");
 
                     $("#acciones-pedido").hide();
                     $("#accion-finalizar").show();
-                    $("#accion-finalizar button").text("Hacer otro pedido");
+                    $("#accion-finalizar button").text("Intentar de nuevo");
 
                     if(intervalo) clearInterval(intervalo);
                 }
@@ -125,12 +167,14 @@
             });
         }
 
-        // Esta función desbloquea el sistema para comprar de nuevo
+        // ---------------------------------------------------------
+        // 4. FUNCIONES AUXILIARES
+        // ---------------------------------------------------------
+
         function finalizarCiclo() {
+            // Limpiamos todo y mandamos a la carta
             sessionStorage.removeItem("ventaActual");
             localStorage.removeItem("comentario_hecho_" + idVenta);
-
-            // Redirigir a la carta
             window.location.href = "@Url.Action("Platos", "Home")";
         }
 
@@ -146,18 +190,16 @@
                 cancelButtonText: 'No, esperar'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // Aquí solo limpiamos visualmente.
-                    // Lo ideal sería llamar a un Action en el servidor para cambiar estado a CANCELADO en BD.
+                    // Aquí deberías llamar a un AJAX para cambiar estado a 'Cancelado' en BD
+                    // Por ahora simulamos el fin del ciclo localmente:
                     finalizarCiclo();
-                    Swal.fire('Cancelado', 'Tu pedido ha sido cancelado.', 'success');
                 }
             });
         }
 
-        // --- LÓGICA DE COMENTARIOS ---
+        // --- LÓGICA DE COMENTARIOS (Igual que antes) ---
 
         function validarComentario() {
-            // Si ya comentó, mostrar directamente el agradecimiento
             if (localStorage.getItem("comentario_hecho_" + idVenta)) {
                 mostrarAgradecimiento();
             }
@@ -180,10 +222,7 @@
                 },
                 success: function (resp) {
                     if (resp.ok) {
-                        // Guardar marca en memoria
                         localStorage.setItem("comentario_hecho_" + idVenta, "true");
-
-                        // Alerta bonita
                         Swal.fire({
                             title: '¡Recibido!',
                             text: 'Gracias por ayudarnos a mejorar.',
@@ -191,7 +230,6 @@
                             timer: 2500,
                             showConfirmButton: false
                         });
-
                         mostrarAgradecimiento();
                     } else {
                         Swal.fire('Error', resp.msg, 'error');

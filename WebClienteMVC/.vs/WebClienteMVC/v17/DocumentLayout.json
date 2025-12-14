@@ -3,72 +3,72 @@
   "WorkspaceRootPath": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|c:\\users\\xaxeveres\\documents\\github\\web_cliente\\webclientemvc\\webclientemvc\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\webclientemvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|c:\\users\\xaxeveres\\documents\\github\\web_cliente\\webclientemvc\\webclientemvc\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|c:\\users\\xaxeveres\\documents\\github\\web_cliente\\webclientemvc\\webclientemvc\\views\\shared\\_modalerror.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\views\\shared\\_modalerror.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\webclientemvc\\controllers\\ventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\controllers\\ventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\webclientemvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|c:\\users\\xaxeveres\\documents\\github\\web_cliente\\webclientemvc\\webclientemvc\\models\\registrarmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\models\\registrarmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|c:\\users\\xaxeveres\\documents\\github\\web_cliente\\webclientemvc\\webclientemvc\\models\\recuperarmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\models\\recuperarmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|c:\\users\\xaxeveres\\documents\\github\\web_cliente\\webclientemvc\\webclientemvc\\models\\cambiarpasswordmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\models\\cambiarpasswordmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|c:\\users\\xaxeveres\\documents\\github\\web_cliente\\webclientemvc\\webclientemvc\\models\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\models\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|c:\\users\\xaxeveres\\documents\\github\\web_cliente\\webclientemvc\\webclientemvc\\views\\home\\estado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\views\\home\\estado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|c:\\users\\xaxeveres\\documents\\github\\web_cliente\\webclientemvc\\webclientemvc\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|c:\\users\\xaxeveres\\documents\\github\\web_cliente\\webclientemvc\\webclientemvc\\views\\home\\_detallepromocionmodal.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\views\\home\\_detallepromocionmodal.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|c:\\users\\xaxeveres\\documents\\github\\web_cliente\\webclientemvc\\webclientemvc\\views\\cuenta\\registrar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\views\\cuenta\\registrar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|c:\\users\\xaxeveres\\documents\\github\\web_cliente\\webclientemvc\\webclientemvc\\views\\cuenta\\recuperar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\views\\cuenta\\recuperar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\webclientemvc\\models\\cambiarpasswordmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\models\\cambiarpasswordmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\webclientemvc\\views\\home\\_detalleplato.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\views\\home\\_detalleplato.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|c:\\users\\xaxeveres\\documents\\github\\web_cliente\\webclientemvc\\webclientemvc\\views\\cuenta\\cambiarpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\webclientemvc\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\webclientemvc\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\webclientemvc\\views\\shared\\_modalerror.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\views\\shared\\_modalerror.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\webclientemvc\\models\\registrarmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\models\\registrarmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\webclientemvc\\models\\recuperarmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\models\\recuperarmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\webclientemvc\\models\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\models\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\webclientemvc\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\webclientemvc\\views\\cuenta\\registrar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\views\\cuenta\\registrar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\webclientemvc\\views\\cuenta\\recuperar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\views\\cuenta\\recuperar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\webclientemvc\\views\\cuenta\\cambiarpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\views\\cuenta\\cambiarpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|c:\\users\\xaxeveres\\documents\\github\\web_cliente\\webclientemvc\\webclientemvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|c:\\users\\xaxeveres\\documents\\github\\web_cliente\\webclientemvc\\webclientemvc\\controllers\\ventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\controllers\\ventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\webclientemvc\\views\\home\\_detallepromocionmodal.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A9982D48-9F52-46C2-BBEC-682B9A078C5A}|WebClienteMVC\\WebClienteMVC.csproj|solutionrelative:webclientemvc\\views\\home\\_detallepromocionmodal.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -77,37 +77,55 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 214,
-          "SelectedChildIndex": 3,
+          "DockedWidth": 209,
+          "SelectedChildIndex": 1,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 1,
               "Title": "VentasController.cs",
               "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Controllers\\VentasController.cs",
               "RelativeDocumentMoniker": "WebClienteMVC\\Controllers\\VentasController.cs",
               "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Controllers\\VentasController.cs",
               "RelativeToolTip": "WebClienteMVC\\Controllers\\VentasController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAkwHMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-10T06:27:03.806Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 4,
               "Title": "_DetallePromocionModal.cshtml",
               "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Home\\_DetallePromocionModal.cshtml",
               "RelativeDocumentMoniker": "WebClienteMVC\\Views\\Home\\_DetallePromocionModal.cshtml",
               "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Home\\_DetallePromocionModal.cshtml",
               "RelativeToolTip": "WebClienteMVC\\Views\\Home\\_DetallePromocionModal.cshtml",
-              "ViewState": "AgIAAGgAAAAAAAAAAAAIwHoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAAGYAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-10T06:28:41.295Z"
+              "WhenOpened": "2025-12-10T06:28:41.295Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "WebClienteMVC\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "WebClienteMVC\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAAF0AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T07:32:56.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "_DetallePlato.cshtml",
               "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Home\\_DetallePlato.cshtml",
               "RelativeDocumentMoniker": "WebClienteMVC\\Views\\Home\\_DetallePlato.cshtml",
@@ -115,35 +133,103 @@
               "RelativeToolTip": "WebClienteMVC\\Views\\Home\\_DetallePlato.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-10T06:28:18.577Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "WebClienteMVC\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "WebClienteMVC\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAIwFAAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T07:32:56.987Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
+              "WhenOpened": "2025-12-10T06:28:18.577Z"
             }
           ]
         },
         {
-          "DockedWidth": 186,
-          "SelectedChildIndex": 3,
+          "DockedWidth": 191,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 11,
+              "Title": "RecuperarModel.cs",
+              "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Models\\RecuperarModel.cs",
+              "RelativeDocumentMoniker": "WebClienteMVC\\Models\\RecuperarModel.cs",
+              "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Models\\RecuperarModel.cs",
+              "RelativeToolTip": "WebClienteMVC\\Models\\RecuperarModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T09:35:18.238Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Estado.cshtml",
+              "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Home\\Estado.cshtml",
+              "RelativeDocumentMoniker": "WebClienteMVC\\Views\\Home\\Estado.cshtml",
+              "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Home\\Estado.cshtml",
+              "RelativeToolTip": "WebClienteMVC\\Views\\Home\\Estado.cshtml",
+              "ViewState": "AgIAAOYAAAAAAAAAAAAAAPgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-10T07:39:08.918Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "WebClienteMVC\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "WebClienteMVC\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAOkBAAAAAAAAAAAkwPABAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-09T22:55:53.244Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "RegistrarModel.cs",
+              "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Models\\RegistrarModel.cs",
+              "RelativeDocumentMoniker": "WebClienteMVC\\Models\\RegistrarModel.cs",
+              "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Models\\RegistrarModel.cs",
+              "RelativeToolTip": "WebClienteMVC\\Models\\RegistrarModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T09:34:58.125Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CambiarPasswordModel.cs",
+              "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Models\\CambiarPasswordModel.cs",
+              "RelativeDocumentMoniker": "WebClienteMVC\\Models\\CambiarPasswordModel.cs",
+              "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Models\\CambiarPasswordModel.cs",
+              "RelativeToolTip": "WebClienteMVC\\Models\\CambiarPasswordModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T09:15:07.769Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "_ModalError.cshtml",
+              "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Shared\\_ModalError.cshtml",
+              "RelativeDocumentMoniker": "WebClienteMVC\\Views\\Shared\\_ModalError.cshtml",
+              "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Shared\\_ModalError.cshtml",
+              "RelativeToolTip": "WebClienteMVC\\Views\\Shared\\_ModalError.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-10T09:39:48.863Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "WebClienteMVC\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "WebClienteMVC\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwCAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T09:13:57.521Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "_ViewStart.cshtml",
               "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "WebClienteMVC\\Views\\_ViewStart.cshtml",
@@ -156,72 +242,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RegistrarModel.cs",
-              "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Models\\RegistrarModel.cs",
-              "RelativeDocumentMoniker": "WebClienteMVC\\Models\\RegistrarModel.cs",
-              "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Models\\RegistrarModel.cs",
-              "RelativeToolTip": "WebClienteMVC\\Models\\RegistrarModel.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T09:34:58.125Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "RecuperarModel.cs",
-              "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Models\\RecuperarModel.cs",
-              "RelativeDocumentMoniker": "WebClienteMVC\\Models\\RecuperarModel.cs",
-              "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Models\\RecuperarModel.cs",
-              "RelativeToolTip": "WebClienteMVC\\Models\\RecuperarModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T09:35:18.238Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Controllers\\LoginController.cs",
-              "RelativeDocumentMoniker": "WebClienteMVC\\Controllers\\LoginController.cs",
-              "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "WebClienteMVC\\Controllers\\LoginController.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T09:13:57.521Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_ModalError.cshtml",
-              "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Shared\\_ModalError.cshtml",
-              "RelativeDocumentMoniker": "WebClienteMVC\\Views\\Shared\\_ModalError.cshtml",
-              "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Shared\\_ModalError.cshtml",
-              "RelativeToolTip": "WebClienteMVC\\Views\\Shared\\_ModalError.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-10T09:39:48.863Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CambiarPasswordModel.cs",
-              "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Models\\CambiarPasswordModel.cs",
-              "RelativeDocumentMoniker": "WebClienteMVC\\Models\\CambiarPasswordModel.cs",
-              "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Models\\CambiarPasswordModel.cs",
-              "RelativeToolTip": "WebClienteMVC\\Models\\CambiarPasswordModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T09:15:07.769Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "LoginModel.cs",
               "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Models\\LoginModel.cs",
               "RelativeDocumentMoniker": "WebClienteMVC\\Models\\LoginModel.cs",
@@ -229,38 +250,24 @@
               "RelativeToolTip": "WebClienteMVC\\Models\\LoginModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T09:14:43.251Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-10T09:14:43.251Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Estado.cshtml",
-              "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Home\\Estado.cshtml",
-              "RelativeDocumentMoniker": "WebClienteMVC\\Views\\Home\\Estado.cshtml",
-              "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Home\\Estado.cshtml",
-              "RelativeToolTip": "WebClienteMVC\\Views\\Home\\Estado.cshtml",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAwwFQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-10T07:39:08.918Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Login\\Login.cshtml",
               "RelativeDocumentMoniker": "WebClienteMVC\\Views\\Login\\Login.cshtml",
               "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Login\\Login.cshtml",
               "RelativeToolTip": "WebClienteMVC\\Views\\Login\\Login.cshtml",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAPiIwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-12-10T09:13:49.593Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "Registrar.cshtml",
               "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Cuenta\\Registrar.cshtml",
               "RelativeDocumentMoniker": "WebClienteMVC\\Views\\Cuenta\\Registrar.cshtml",
@@ -268,12 +275,11 @@
               "RelativeToolTip": "WebClienteMVC\\Views\\Cuenta\\Registrar.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-10T08:42:58.164Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-10T08:42:58.164Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "Recuperar.cshtml",
               "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Cuenta\\Recuperar.cshtml",
               "RelativeDocumentMoniker": "WebClienteMVC\\Views\\Cuenta\\Recuperar.cshtml",
@@ -281,12 +287,11 @@
               "RelativeToolTip": "WebClienteMVC\\Views\\Cuenta\\Recuperar.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-10T08:42:57.027Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-10T08:42:57.027Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "CambiarPassword.cshtml",
               "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Cuenta\\CambiarPassword.cshtml",
               "RelativeDocumentMoniker": "WebClienteMVC\\Views\\Cuenta\\CambiarPassword.cshtml",
@@ -294,21 +299,7 @@
               "RelativeToolTip": "WebClienteMVC\\Views\\Cuenta\\CambiarPassword.cshtml",
               "ViewState": "AgIAAIoAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-10T08:42:12.231Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "WebClienteMVC\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\XaXeVeReS\\Documents\\GitHub\\Web_Cliente\\WebClienteMVC\\WebClienteMVC\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "WebClienteMVC\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAH8BAAAAAAAAAAAiwJ4BAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-09T22:55:53.244Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-10T08:42:12.231Z"
             }
           ]
         }

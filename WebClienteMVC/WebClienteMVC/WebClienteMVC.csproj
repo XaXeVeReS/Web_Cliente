@@ -227,6 +227,15 @@
     <Content Include="Connected Services\WCF_Apl_Dis\WebClienteMVC.WCF_Apl_Dis.Cls_Promocion_Plato.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\WCF_Apl_Dis\WebClienteMVC.WCF_Apl_Dis.Cls_CardexInsumos.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WCF_Apl_Dis\WebClienteMVC.WCF_Apl_Dis.Cls_DetalleCompras.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WCF_Apl_Dis\WebClienteMVC.WCF_Apl_Dis.Procesar_PagoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />

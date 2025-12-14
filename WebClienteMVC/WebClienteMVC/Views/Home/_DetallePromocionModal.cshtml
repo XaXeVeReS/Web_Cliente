@@ -9,7 +9,6 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content shadow-lg" style="border-radius:18px; overflow:hidden;">
 
-            <!-- HEADER -->
             <div class="modal-header bg-warning text-dark">
                 <h4 class="modal-title fw-bold">
                     @promo.PromocionNombre
@@ -17,12 +16,10 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 
-            <!-- BODY -->
             <div class="modal-body">
 
                 <div class="row">
 
-                    <!-- IMAGEN PRINCIPAL -->
                     <div class="col-md-5 d-flex align-items-start justify-content-center mb-3">
                         <img src="@(promo.Imagen != null
                                 ? "data:image/png;base64," + Convert.ToBase64String(promo.Imagen)
@@ -31,7 +28,6 @@
                              style="object-fit:cover; width:100%; max-height:260px;" />
                     </div>
 
-                    <!-- INFORMACIÓN -->
                     <div class="col-md-7">
 
                         <p class="fs-5"><strong>Descripción:</strong> @promo.Descripcion</p>
@@ -43,7 +39,7 @@
                             </p>
 
                             <p class="m-0 fs-5">
-                                <strong>Mínimo requerido:</strong>
+                                <strong>Válido por:</strong>
                                 <span class="text-primary fw-bold">@promo.Cantidad_Aplicable platos</span>
                             </p>
 
@@ -61,33 +57,29 @@
                             </p>
                         </div>
 
-                        <!-- Precios -->
                         <div class="mt-3">
                             <p class="text-decoration-line-through text-danger fs-6 mb-1">
-                                Precio normal: S/ @promo.PrecioNormal.ToString("0.00")
+                                Precio normal: S/ @((Math.Round(promo.PrecioNormal *10)/10).ToString("0.00"))
                             </p>
 
                             <p class="text-success fw-bold fs-4">
-                                Precio con descuento: S/ @promo.PrecioConDescuento.ToString("0.00")
+                                Precio con descuento: S/ @((Math.Floor(promo.PrecioConDescuento * 10) / 10).ToString("0.00"))
                             </p>
                         </div>
 
-                        <!-- SELECTOR DE CANTIDAD -->
                         <div class="d-flex align-items-center gap-3 mt-3">
-                            <button class="btn btn-outline-dark px-3 fs-4"
-                                    onclick="cambiarCantidadPromo(-1)">
+                            <button class="btn btn-outline-dark px-3 fs-4" disabled>
                                 −
                             </button>
 
                             <input id="cantidadPromo"
                                    type="text"
-                                   value="1"
+                                   value="@promo.Cantidad_Aplicable"
                                    class="form-control text-center fw-bold fs-5"
                                    style="width:80px;"
                                    readonly />
 
-                            <button class="btn btn-outline-dark px-3 fs-4"
-                                    onclick="cambiarCantidadPromo(1)">
+                            <button class="btn btn-outline-dark px-3 fs-4" disabled>
                                 +
                             </button>
                         </div>
@@ -97,7 +89,6 @@
 
             </div>
 
-            <!-- FOOTER -->
             <div class="modal-footer d-flex justify-content-between">
 
                 <button class="btn btn-secondary px-4" data-bs-dismiss="modal">
@@ -109,7 +100,7 @@
                                 @promo.Id_Plato,
                                 '@promo.PromocionNombre',
                                 @promo.Descuento,
-                                @promo.PrecioConDescuento,
+                               @((Math.Floor(promo.PrecioConDescuento * 10) / 10).ToString("0.00").Replace(",", ".")),
                                 @promo.Id_Promocion
                             )">
                     ➕ Agregar Promoción
@@ -123,6 +114,8 @@
 
 
 <script>
+    // La función cambiarCantidadPromo ya no es necesaria visualmente porque los botones están disabled,
+    // pero la mantenemos por si decides reactivarlos en el futuro.
     function cambiarCantidadPromo(n) {
         let input = document.getElementById("cantidadPromo");
         let v = parseInt(input.value);
@@ -132,6 +125,7 @@
     }
 
     function confirmarAgregarPromo(idplato, nombrePromo, descuento, precioConDescuento, idpromo) {
+        // Tomará el valor fijo del input
         let cant = parseInt(document.getElementById("cantidadPromo").value);
 
         agregarAComprasPromo(idplato, nombrePromo, descuento, precioConDescuento, cant, idpromo);
@@ -139,5 +133,4 @@
         let modal = bootstrap.Modal.getInstance(document.getElementById("modalPromo"));
         modal.hide();
     }
-
 </script>

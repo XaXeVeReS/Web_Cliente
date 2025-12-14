@@ -1,8 +1,6 @@
 ﻿@{
     Layout = null;
-    // Recuperamos el nombre, si es nulo será "Invitado"
     string usuarioNombre = Session["Usuario"]?.ToString() ?? "Invitado";
-    // Variable auxiliar para saber si está logueado
     bool isLogged = usuarioNombre != "Invitado";
 }
 
@@ -52,7 +50,7 @@
                 color: yellow;
             }
 
-        /* ESTILO PARA EL DROPDOWN DEL USUARIO */
+        /* DROPDOWN USUARIO */
         .user-dropdown-toggle {
             cursor: pointer;
             text-decoration: none;
@@ -67,7 +65,7 @@
                 opacity: 0.9;
             }
 
-        /* PANEL IZQUIERDO */
+        /* PANEL IZQUIERDO (CARRITO) */
         #panelCompras {
             background: #f7f7f7;
             border-right: 3px solid #ccc;
@@ -121,56 +119,18 @@
                 font-weight: bold;
                 text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
             }
-
-        /* Fondo oscuro que cubre toda la pantalla */
-        #modalOverlay_FormPago {
-            position: fixed;
-            inset: 0; 
-            background: rgba(0, 0, 0, 0.5);
-            display: none; 
-            justify-content: center; 
-            align-items: center; 
-
-            z-index: 9999; 
-        }
-
-        /* Contenido del modal centrado */
-        #modalConfirmacionPago {
-            background: white;
-            width: 60vw; 
-            height: 70vh; 
-
-            padding: 20px;
-            border-radius: 12px;
-            overflow-y: auto; 
-
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        #modalConfirmacionPago {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 350px;
-            max-width: 90%;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-        }
-
     </style>
-
 </head>
 <body>
 
     <div class="container-fluid header-food">
         <div class="row text-center align-items-center">
-
             <div class="col-12 col-md-2">
                 <img src="~/Recursos/fondo_web.png" class="img-fluid" style="max-height: 110px;" />
             </div>
 
             <div class="col-12 col-md-8">
                 <h1 class="text-border fw-bold">La Mamacha</h1>
-
                 <div class="row menu-food mt-3">
                     <div class="col">@Html.ActionLink("Plato", "Platos", "Home")</div>
                     <div class="col">@Html.ActionLink("Promociones", "Promociones", "Home")</div>
@@ -179,7 +139,6 @@
             </div>
 
             <div class="col-12 col-md-2 d-flex justify-content-center justify-content-md-end pe-md-4">
-
                 <div class="dropdown">
                     <div class="user-dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         <div class="text-end me-2">
@@ -203,7 +162,6 @@
                         }
                     </ul>
                 </div>
-
             </div>
         </div>
     </div>
@@ -212,7 +170,6 @@
         <div class="row gx-0 d-flex">
 
             <div id="panelCompras" class="col-auto position-relative">
-
                 <div id="tituloCompras" class="p-2">
                     <h4 class="fw-bold m-0">Compras</h4>
                 </div>
@@ -228,68 +185,14 @@
                                 <th>Precio</th>
                             </tr>
                         </thead>
-                        <tbody id="tablaCompras">
-                        </tbody>
+                        <tbody id="tablaCompras"></tbody>
                     </table>
                     <h4 class="text-end fw-bold mt-2">
                         Total: <span id="totalCompras">S/ 0.00</span>
                     </h4>
-                    <button class="btn btn-success w-100 mt-2 fw-bold"
-                            onclick="ComfirmarPago()">
-                        Realizar Pedido
+                    <button class="btn btn-success w-100 mt-2 fw-bold" onclick="abrirModalPago()">
+                        Proceder al Pago
                     </button>
-                </div>
-                <div id="modalOverlay_FormPago">
-                    <div id="modalConfirmacionPago">
-                        <div class="modal-content">
-                            <h3 class="fw-bold">Confirmar Pedido</h3>
-                            <p>¿Desea confirmar la venta?</p>
-
-                            <table class="table table-bordered tabla-compras">
-                                <thead>
-                                    <tr>
-                                        <th>Plato</th>
-                                        <th>Precio</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tablaConfirmarPago">
-                                </tbody>
-                            </table>
-                            <h4 class="text-end fw-bold mt-2">
-                                Total: <span id="CostototalPago">S/ 0.00</span>
-                            </h4>
-
-                            <label>Tipo de Tarjeta</label>
-                            <select id="selectTipoTarjeta" class="form-control fw-bold mb-2">
-                                <option value="">Seleccione...</option>
-                                <option value="BCP">BCP</option>
-                                <option value="BN">Banco de la Nación</option>
-                            </select>
-
-                            <label>Nr. de Tarjeta</label>
-                            <input id="txtNrtarjeta"
-                                   type="text"
-                                   class="form-control text-center fw-bold fs-5"
-                                   style="width:auto;margin-bottom: 10px" />
-
-                            <label>Pago Realizado</label>
-                            <input id="txtPagoRealizado"
-                                   type="number"
-                                   class="form-control text-center fw-bold fs-5"
-                                   style="width: auto; margin-bottom: 10px"/>
-
-                            <label>Codigo Pin</label>
-                            <input id="txtCodigoPin"
-                                   type="password"
-                                   class="form-control text-center fw-bold fs-5"
-                                   style="width: auto; margin-bottom: 10px"/>
-
-                            <div class="text-end mt-3">
-                                <button class="btn btn-secondary" onclick="cerrarModal_FormPago()">Cancelar</button>
-                                <button class="btn btn-primary" onclick="confirmarVenta()">Aceptar</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -304,15 +207,89 @@
         <h1>Date un gustito, te lo mereces</h1>
     </div>
 
+    <div class="modal fade" id="modalPago" tabindex="-1" aria-labelledby="modalPagoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title fw-bold" id="modalPagoLabel">
+                        💳 Finalizar Compra
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body p-4">
+                    <div class="card mb-4 border-0 bg-light">
+                        <div class="card-body">
+                            <h6 class="text-muted text-uppercase fw-bold mb-2 small">Resumen</h6>
+                            <div class="table-responsive" style="max-height: 120px; overflow-y: auto;">
+                                <table class="table table-sm table-borderless mb-0">
+                                    <tbody id="tablaConfirmarPago">
+                                    </tbody>
+                                </table>
+                            </div>
+                            <hr class="my-2">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-dark">Total a Pagar</span>
+                                <span class="fs-4 fw-bold text-primary" id="CostototalPagoModal">S/ 0.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form id="formPago">
+                        <h6 class="text-muted text-uppercase fw-bold mb-3 small">Método de Pago</h6>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold small">Banco</label>
+                            <select id="selectTipoTarjeta" class="form-select">
+                                <option value="">Seleccione...</option>
+                                <option value="BCP">BCP</option>
+                                <option value="BN">Banco de la Nación</option>
+                                <option value="BBVA">BBVA</option>
+                                <option value="IBK">Interbank</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold small">Número de Tarjeta</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white">💳</span>
+                                <input id="txtNrtarjeta" type="text" class="form-control" placeholder="0000 0000 0000 0000" maxlength="19">
+                            </div>
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <label class="form-label fw-bold small">Vencimiento (MM/YY)</label>
+                                <input id="txtFechaVenc" type="text" class="form-control text-center" placeholder="MM/YY" maxlength="5">
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label fw-bold small">CVV</label>
+                                <div class="input-group">
+                                    <input id="txtCVV" type="password" class="form-control text-center" placeholder="123" maxlength="3">
+                                    <span class="input-group-text bg-white">🔒</span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer border-0 pt-0 px-4 pb-4">
+                    <button type="button" class="btn btn-outline-secondary w-100 mb-2" data-bs-dismiss="modal">Seguir comprando</button>
+                    <button type="button" class="btn btn-success w-100 fw-bold py-2" onclick="validarYPagar()">
+                        Pagar Ahora <span id="btnTotalLabel"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // ==========================================
-        // 1. LÓGICA DEL PANEL LATERAL
-        // ==========================================
+        // --- 1. Lógica del Panel Lateral (Responsive) ---
         const panel = document.getElementById("panelCompras");
         const tabla = document.querySelector(".compras-table");
         const titulo = document.getElementById("tituloCompras");
         const btn = document.getElementById("btnTogglePanel");
-
         let oculto = false;
 
         function aplicarResponsive() {
@@ -329,9 +306,8 @@
                 oculto = false;
             }
         }
-
         window.addEventListener("resize", aplicarResponsive);
-        aplicarResponsive(); // Ejecutar al inicio
+        aplicarResponsive();
 
         btn.addEventListener("click", () => {
             oculto = !oculto;
@@ -348,12 +324,8 @@
             }
         });
 
-        // ==========================================
-        // 2. LÓGICA DEL CARRITO DE COMPRAS
-        // ==========================================
+        // --- 2. Lógica del Carrito ---
         let compras = [];
-
-        // Cargar carrito guardado
         if (sessionStorage.getItem("carrito")) {
             compras = JSON.parse(sessionStorage.getItem("carrito"));
             actualizarTabla();
@@ -375,12 +347,8 @@
             }
             guardarCarrito();
             actualizarTabla();
-
-            // Feedback visual pequeño
-            const Toast = Swal.mixin({
-                toast: true, position: 'top-end', showConfirmButton: false, timer: 1500
-            });
-            Toast.fire({ icon: 'success', title: 'Agregado al carrito' });
+            Swal.mixin({ toast: true, position: 'top-end', showConfirmButton: false, timer: 1500 })
+                .fire({ icon: 'success', title: 'Agregado al carrito' });
         }
 
         function agregarAComprasPromo(idPlato, nombre, descuento, precio, cant, idpromo) {
@@ -395,10 +363,8 @@
             }
             guardarCarrito();
             actualizarTabla();
-
-            Swal.fire({
-                icon: 'success', title: '¡Promoción agregada!', showConfirmButton: false, timer: 1500
-            });
+            Swal.mixin({ toast: true, position: 'top-end', showConfirmButton: false, timer: 1500 })
+                .fire({ icon: 'success', title: 'Promo agregada' });
         }
 
         function eliminarDelCarrito(id, tipo) {
@@ -410,8 +376,7 @@
         function actualizarTabla() {
             let tablaBody = document.getElementById("tablaCompras");
             let totalSpan = document.getElementById("totalCompras");
-
-            if(!tablaBody || !totalSpan) return; // Evita errores si no encuentra la tabla
+            if (!tablaBody || !totalSpan) return;
 
             tablaBody.innerHTML = "";
             let total = 0;
@@ -419,15 +384,6 @@
             compras.forEach(item => {
                 let subtotal = item.precio * item.cantidad;
                 total += subtotal;
-
-                tabla.innerHTML += `
-                            <tr>
-                                <td>${item.cantidad}</td>
-                                <td>${item.tipo === "promo" ? "PROMO-" : ""}${item.nombre}</td>
-                                <td>S/ ${subtotal.toFixed(2)}</td>
-                                <td><button class="btn btn-danger btn-sm" onclick="eliminarDelCarrito(${item.id}, '${item.tipo}')">X</button></td>
-                            </tr>`;
-
                 tablaBody.innerHTML += `
                     <tr>
                         <td>${item.cantidad}</td>
@@ -439,73 +395,85 @@
             totalSpan.innerHTML = "S/ " + total.toFixed(2);
         }
 
-        // ABRIR FORM PAGO
-        function abrirModal_FormPago() {
-            document.getElementById("modalOverlay_FormPago").style.display = "flex";
-        }
+        // --- 3. FUNCIONES DEL MODAL DE PAGO ---
 
-        // CERRAR FORM PAGO
-        function cerrarModal_FormPago() {
-            document.getElementById("modalOverlay_FormPago").style.display = "none";
-        }
-
-        function cargarTablaConfirmarPago() {
-            const tbody = document.getElementById("tablaConfirmarPago");
-            tbody.innerHTML = ""; 
-
-            let total = 0;
-            compras.forEach(item => {
-                const fila = document.createElement("tr");
-                let costo = item.precio * item.cantidad * (1 - item.descuento);
-                total += costo;
-                fila.innerHTML = `<td>${item.nombre}</td><td>S/ ${costo.toFixed(2)}</td>`;
-
-                tbody.appendChild(fila);
-            });
-            document.getElementById("CostototalPago").innerText = total;
-            document.getElementById("txtPagoRealizado").ariaValueText = total;
-        }
-
-        function ComfirmarPago() {
-
+        function abrirModalPago() {
+            // Verificar carrito vacío
             if (compras.length === 0) {
-                alert("El carrito está vacío.");
+                Swal.fire('Carrito vacío', 'Agrega platos antes de pagar.', 'info');
                 return;
             }
 
-            cargarTablaConfirmarPago()
-            abrirModal_FormPago();
-        }
-
-        // CONFIRMAR VENTA
-
-        // ==========================================
-        // 3. CONFIRMAR VENTA (Aquí estaba el posible error)
-        // ==========================================
-
-        function confirmarVenta() {
-            // A. Verificar si ya tiene un pedido activo (Bloqueo)
+            // Verificar si ya tiene pedido activo
             if (sessionStorage.getItem("ventaActual")) {
-                Swal.fire({
+                 Swal.fire({
                     title: '¡Pedido en curso!',
                     text: 'Ya tienes un pedido pendiente. Debes esperar a que finalice.',
                     icon: 'warning',
                     confirmButtonText: 'Ver estado'
                 }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = "@Url.Action("Estado", "Home")";
-                    }
+                    if (result.isConfirmed) window.location.href = "@Url.Action("Estado", "Home")";
                 });
-                return; // IMPORTANTE: Detiene la función aquí
-            }
-
-            // B. Verificar carrito vacío
-            if (compras.length === 0) {
-                Swal.fire('Carrito vacío', 'Agrega algún plato antes de pedir.', 'info');
                 return;
             }
 
-            // C. Preparar datos
+            // Llenar datos del Modal
+            const tbody = document.getElementById("tablaConfirmarPago");
+            tbody.innerHTML = "";
+            let total = 0;
+
+            compras.forEach(item => {
+                let costo = 0;
+
+                // CORRECCIÓN VISUAL:
+                if (item.promocion != null) {
+                    // Si es promo, el precio ya es neto, multiplicar directo
+                    costo = item.precio * item.cantidad;
+                } else {
+                    // Si es plato, aplicar descuento si hubiera
+                    costo = item.precio * item.cantidad * (1 - (item.descuento || 0));
+                }
+
+                total += costo;
+
+                tbody.innerHTML += `
+            <tr>
+                <td class="text-muted">${item.cantidad} x ${item.nombre}</td>
+                <td class="text-end fw-bold">S/ ${costo.toFixed(2)}</td>
+            </tr>`;
+            });
+
+            document.getElementById("CostototalPagoModal").innerText = "S/ " + total.toFixed(2);
+            document.getElementById("btnTotalLabel").innerText = "(S/ " + total.toFixed(2) + ")";
+
+            // Abrir Modal con Bootstrap
+            var myModal = new bootstrap.Modal(document.getElementById('modalPago'));
+            myModal.show();
+        }
+
+        function validarYPagar() {
+            // Validaciones Visuales
+            const banco = document.getElementById("selectTipoTarjeta").value;
+            const tarjeta = document.getElementById("txtNrtarjeta").value;
+            const cvv = document.getElementById("txtCVV").value;
+            const venc = document.getElementById("txtFechaVenc").value;
+
+            if (banco === "") return Swal.fire('Falta Banco', 'Seleccione su banco.', 'warning');
+            if (tarjeta.length < 16) return Swal.fire('Tarjeta Inválida', 'Revise el número de tarjeta.', 'warning');
+            if (venc === "" || cvv === "") return Swal.fire('Datos Incompletos', 'Complete fecha y CVV.', 'warning');
+
+            // Cerrar Modal
+            const modalEl = document.getElementById('modalPago');
+            const modal = bootstrap.Modal.getInstance(modalEl);
+            modal.hide();
+
+            // Ejecutar el envío al servidor
+            enviarVentaAlServidor();
+        }
+
+        // --- 4. AJAX (ENVÍO AL SERVIDOR) ---
+
+        function enviarVentaAlServidor() {
             let detalle = compras.map(x => ({
                 Id_Plato: x.id,
                 Precio_Unitario: x.precio,
@@ -513,48 +481,55 @@
                 Descuento: x.descuento,
                 Id_Promocion: x.promocion
             }));
+            // CAPTURAR DATOS DEL FORMULARIO
+            let banco = document.getElementById("selectTipoTarjeta").value;
+            let tarjeta = document.getElementById("txtNrtarjeta").value.replace(/\s/g, ''); // Quitar espacios
+            let fecha = document.getElementById("txtFechaVenc").value;
+            let cvv = document.getElementById("txtCVV").value;
 
-
-            let monto = document.getElementById("txtPagoRealizado").ariaValueText;
-
-            // AQUÍ SE USA JQUERY ($.ajax)
-
-            // D. Enviar al servidor
+            Swal.fire({ title: 'Procesando pago...', didOpen: () => Swal.showLoading() });
 
             $.ajax({
                 url: "/Ventas/RegistrarVenta",
                 method: "POST",
-                data: { json: JSON.stringify(detalle),Monto_Total: monto},
+                data: {
+                    json: JSON.stringify(detalle),
+                    banco: banco,
+                    tarjeta: tarjeta,
+                    fecha: fecha,
+                    cvv: cvv
+                },
                 success: function (r) {
                     if (r.ok) {
-                        // 1. Guardar ID venta para bloquear futuros pedidos
+                        // PAGO EXITOSO
                         sessionStorage.setItem("ventaActual", r.idVenta);
-
-                        // 2. Limpiar carrito
                         compras = [];
                         sessionStorage.removeItem("carrito");
                         actualizarTabla();
 
-                        // 3. Alerta de Éxito y Redirección
                         Swal.fire({
-                            title: '¡Pedido Enviado!',
-                            text: 'Tu orden se ha registrado correctamente.',
+                            title: '¡Pago Exitoso!',
+                            text: 'Tu orden ha sido pagada y registrada.',
                             icon: 'success',
-                            confirmButtonText: 'Ver estado del pedido'
+                            confirmButtonText: 'Ver estado'
                         }).then(() => {
                             window.location.href = "@Url.Action("Estado", "Home")";
                         });
-
                     } else {
-                        Swal.fire('Error', 'El servidor respondió: ' + r.error, 'error');
+                        // ERROR DE PAGO (Saldo insuficiente, etc.)
+                        Swal.fire('Pago Rechazado', r.error, 'error');
                     }
                 },
                 error: function (xhr) {
-                    console.error(xhr);
-                    Swal.fire('Error de conexión', 'No se pudo conectar con el servidor. Verifica tu sesión.', 'error');
+                    Swal.fire('Error', 'No se pudo conectar con el servidor.', 'error');
                 }
             });
         }
+
+        // Formato automático de tarjeta (UX)
+        document.getElementById('txtNrtarjeta').addEventListener('input', function (e) {
+            e.target.value = e.target.value.replace(/\D/g, '').replace(/(\d{4})(?=\d)/g, '$1 ').trim();
+        });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

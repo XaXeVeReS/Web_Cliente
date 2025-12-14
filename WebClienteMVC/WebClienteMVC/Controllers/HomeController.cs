@@ -72,6 +72,11 @@ namespace WebClienteMVC.Controllers
 //-------------------------------------------------------------------------------------//
         public ActionResult Estado()
         {
+            int idCliente = (int)Session["IdUsuario"];
+
+            int idVentaRecuperada = cliente.Search_id_venta_activa(idCliente);
+
+            ViewBag.IdVentaActiva = idVentaRecuperada;
             return View();
         }
 
@@ -103,7 +108,7 @@ namespace WebClienteMVC.Controllers
                 nuevoComentario.Id_Venta = idVenta;
                 nuevoComentario.Id_Usuario = Convert.ToInt32(Session["IdUsuario"]); // Sacamos el ID de la sesión
                 nuevoComentario.Comentario = texto;
-                nuevoComentario.Tipo = "VENTA"; // <--- REQUISITO: Tipo fijo "VENTA"
+                nuevoComentario.tipo = "VENTA"; // <--- REQUISITO: Tipo fijo "VENTA"
 
                 // 3. Llamar a tu servicio o lógica de inserción
                 // Asumo que tu 'cliente' tiene el método 'insertar_comentario' que arreglamos antes
@@ -116,6 +121,16 @@ namespace WebClienteMVC.Controllers
             {
                 return Json(new { ok = false, msg = ex.Message });
             }
+        }
+        public ActionResult EstadoPedido()
+        {
+            int idCliente = (int)Session["IdUsuario"];
+
+            int idVentaRecuperada = cliente.Search_id_venta_activa(idCliente);
+
+            ViewBag.IdVentaActiva = idVentaRecuperada;
+
+            return View();
         }
     }
 }

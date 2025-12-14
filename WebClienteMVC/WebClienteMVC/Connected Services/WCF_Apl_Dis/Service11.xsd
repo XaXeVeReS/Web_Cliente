@@ -35,6 +35,23 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfCls_Insumos" nillable="true" type="tns:ArrayOfCls_Insumos" />
+  <xs:complexType name="ArrayOfCls_CardexInsumos">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Cls_CardexInsumos" nillable="true" type="tns:Cls_CardexInsumos" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCls_CardexInsumos" nillable="true" type="tns:ArrayOfCls_CardexInsumos" />
+  <xs:complexType name="Cls_CardexInsumos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cantidad" type="xs:float" />
+      <xs:element minOccurs="0" name="Fecha_Movimiento" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id_Insumo" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Usuario" type="xs:int" />
+      <xs:element minOccurs="0" name="Motivo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipo_Movimiento" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Cls_CardexInsumos" nillable="true" type="tns:Cls_CardexInsumos" />
   <xs:complexType name="Cls_Platos">
     <xs:sequence>
       <xs:element minOccurs="0" name="Activo" type="xs:boolean" />
@@ -167,6 +184,9 @@
       <xs:element minOccurs="0" name="Fecha_Compra" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Id_Compra" type="xs:int" />
       <xs:element minOccurs="0" name="Id_Usuario" type="xs:int" />
+      <xs:element minOccurs="0" name="Observaciones" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Proveedor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Total" type="xs:float" />
       <xs:element minOccurs="0" name="Version" nillable="true" type="xs:base64Binary" />
       <xs:element minOccurs="0" name="txt_Usuario" nillable="true" type="xs:string" />
     </xs:sequence>
@@ -184,6 +204,7 @@
       <xs:element minOccurs="0" name="Costo_Unitario" type="xs:float" />
       <xs:element minOccurs="0" name="Id_Compra" type="xs:int" />
       <xs:element minOccurs="0" name="Id_Insumo" type="xs:int" />
+      <xs:element minOccurs="0" name="Precio_Unitario" type="xs:float" />
       <xs:element minOccurs="0" name="txt_Insumo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="txt_Unidad_Medida" nillable="true" type="xs:string" />
     </xs:sequence>
@@ -198,12 +219,16 @@
   <xs:complexType name="Cls_Comentarios">
     <xs:sequence>
       <xs:element minOccurs="0" name="Comentario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Contexto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Fecha_Comentario" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Id_Comentario" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Plato" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Relacionado" type="xs:int" />
       <xs:element minOccurs="0" name="Id_Usuario" type="xs:int" />
-      <xs:element minOccurs="0" name="Id_Venta" type="xs:int" />
-      <xs:element minOccurs="0" name="Nombre_Usuario" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Venta" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Valoracion" type="xs:int" />
+      <xs:element minOccurs="0" name="tipo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="txt_Usuario" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Cls_Comentarios" nillable="true" type="tns:Cls_Comentarios" />
@@ -342,4 +367,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Cls_Alerta" nillable="true" type="tns:Cls_Alerta" />
+  <xs:complexType name="Cls_Cartera">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Clave_Pin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaVencimiento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nro_Tarjeta" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Cls_Cartera" nillable="true" type="tns:Cls_Cartera" />
 </xs:schema>

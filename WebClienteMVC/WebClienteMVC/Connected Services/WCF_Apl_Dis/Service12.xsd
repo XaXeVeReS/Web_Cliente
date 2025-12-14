@@ -105,6 +105,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Check_User_Status">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Check_User_StatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Check_User_StatusResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Insert_Insumo">
     <xs:complexType>
       <xs:sequence>
@@ -181,10 +195,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Get_CardexByInsumo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id_Insumo" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_CardexByInsumoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Get_CardexByInsumoResult" nillable="true" type="q10:ArrayOfCls_CardexInsumos" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Insert_Plato">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Plato" nillable="true" type="q10:Cls_Platos" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Plato" nillable="true" type="q11:Cls_Platos" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -196,7 +224,7 @@
   <xs:element name="Update_Plato">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Plato" nillable="true" type="q11:Cls_Platos" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Plato" nillable="true" type="q12:Cls_Platos" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -225,7 +253,7 @@
   <xs:element name="Get_PlatosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Get_PlatosResult" nillable="true" type="q12:ArrayOfCls_Platos" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Get_PlatosResult" nillable="true" type="q13:ArrayOfCls_Platos" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -239,7 +267,7 @@
   <xs:element name="Search_PlatoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Search_PlatoResult" nillable="true" type="q13:Cls_Platos" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Search_PlatoResult" nillable="true" type="q14:Cls_Platos" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -260,7 +288,7 @@
   <xs:element name="Insert_Promocion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Promocion" nillable="true" type="q14:Cls_Promociones" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Promocion" nillable="true" type="q15:Cls_Promociones" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -272,7 +300,7 @@
   <xs:element name="Update_Promocion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Promocion" nillable="true" type="q15:Cls_Promociones" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Promocion" nillable="true" type="q16:Cls_Promociones" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -295,13 +323,15 @@
   </xs:element>
   <xs:element name="Get_Promociones">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Listar_Todo" type="xs:boolean" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Get_PromocionesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Get_PromocionesResult" nillable="true" type="q16:ArrayOfCls_Promociones" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Get_PromocionesResult" nillable="true" type="q17:ArrayOfCls_Promociones" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -313,7 +343,7 @@
   <xs:element name="Get_Promocion_PlatosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Get_Promocion_PlatosResult" nillable="true" type="q17:ArrayOfCls_Promocion_Plato" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Get_Promocion_PlatosResult" nillable="true" type="q18:ArrayOfCls_Promocion_Plato" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -327,14 +357,14 @@
   <xs:element name="Search_PromocionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Search_PromocionResult" nillable="true" type="q18:Cls_Promociones" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Search_PromocionResult" nillable="true" type="q19:Cls_Promociones" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Insert_Venta">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Venta" nillable="true" type="q19:Cls_Ventas" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Venta" nillable="true" type="q20:Cls_Ventas" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -346,7 +376,7 @@
   <xs:element name="Insert_Venta_Return_Id">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="venta" nillable="true" type="q20:Cls_Ventas" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="venta" nillable="true" type="q21:Cls_Ventas" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -360,7 +390,7 @@
   <xs:element name="Update_Venta">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Venta" nillable="true" type="q21:Cls_Ventas" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Venta" nillable="true" type="q22:Cls_Ventas" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -372,7 +402,7 @@
   <xs:element name="State_Venta">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Venta" nillable="true" type="q22:Cls_Ventas" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Venta" nillable="true" type="q23:Cls_Ventas" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -391,7 +421,7 @@
   <xs:element name="Get_Estado_VentaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Get_Estado_VentaResult" nillable="true" type="q23:Cls_Ventas" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Get_Estado_VentaResult" nillable="true" type="q24:Cls_Ventas" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -406,7 +436,7 @@
   <xs:element name="Get_VentasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Get_VentasResult" nillable="true" type="q24:ArrayOfCls_Ventas" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Get_VentasResult" nillable="true" type="q25:ArrayOfCls_Ventas" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -420,14 +450,28 @@
   <xs:element name="Search_VentaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Search_VentaResult" nillable="true" type="q25:Cls_Ventas" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Search_VentaResult" nillable="true" type="q26:Cls_Ventas" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Search_id_venta_activa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id_Venta" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Search_id_venta_activaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Search_id_venta_activaResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Insert_Compra">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Compra" nillable="true" type="q26:Cls_Compras" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Compra" nillable="true" type="q27:Cls_Compras" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -439,7 +483,7 @@
   <xs:element name="Update_Compra">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Compra" nillable="true" type="q27:Cls_Compras" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Compra" nillable="true" type="q28:Cls_Compras" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -451,7 +495,7 @@
   <xs:element name="State_Compra">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Compra" nillable="true" type="q28:Cls_Compras" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Compra" nillable="true" type="q29:Cls_Compras" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -468,7 +512,7 @@
   <xs:element name="Get_ComprasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Get_ComprasResult" nillable="true" type="q29:ArrayOfCls_Compras" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Get_ComprasResult" nillable="true" type="q30:ArrayOfCls_Compras" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -482,14 +526,64 @@
   <xs:element name="Search_CompraResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Search_CompraResult" nillable="true" type="q30:Cls_Compras" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Search_CompraResult" nillable="true" type="q31:Cls_Compras" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Delete_Compra">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id_Compra" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Delete_CompraResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_DetallesCompraByCompraId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id_Compra" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_DetallesCompraByCompraIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Get_DetallesCompraByCompraIdResult" nillable="true" type="q32:ArrayOfCls_DetalleCompras" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Delete_DetallesCompra">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id_Compra" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Delete_DetallesCompraResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insert_DetalleCompra">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Detalle" nillable="true" type="q33:Cls_DetalleCompras" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insert_DetalleCompraResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="Insert_Comentario">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Comentario" nillable="true" type="q31:Cls_Comentarios" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Comentario" nillable="true" type="q34:Cls_Comentarios" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -513,14 +607,27 @@
   <xs:element name="Get_Comentarios">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Contexto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Id_Relacionado" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Get_ComentariosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Get_ComentariosResult" nillable="true" type="q32:ArrayOfCls_Comentarios" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Get_ComentariosResult" nillable="true" type="q35:ArrayOfCls_Comentarios" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Comentarios_All">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Comentarios_AllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Get_Comentarios_AllResult" nillable="true" type="q36:ArrayOfCls_Comentarios" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -538,7 +645,7 @@
   <xs:element name="Get_KPI_DinamicoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Get_KPI_DinamicoResult" nillable="true" type="q33:Cls_KPI_Dinamico_Result" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Get_KPI_DinamicoResult" nillable="true" type="q37:Cls_KPI_Dinamico_Result" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -550,7 +657,23 @@
   <xs:element name="Get_AlertasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Get_AlertasResult" nillable="true" type="q34:ArrayOfCls_Alerta" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="Get_AlertasResult" nillable="true" type="q38:ArrayOfCls_Alerta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Procesar_Pago">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="objCartera" nillable="true" type="q39:Cls_Cartera" />
+        <xs:element minOccurs="0" name="monto" type="xs:float" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Procesar_PagoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Procesar_PagoResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="mensaje" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

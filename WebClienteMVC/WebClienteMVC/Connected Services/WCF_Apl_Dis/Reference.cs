@@ -281,6 +281,131 @@ namespace WebClienteMVC.WCF_Apl_Dis {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Cls_CardexInsumos", Namespace="http://schemas.datacontract.org/2004/07/Entities")]
+    [System.SerializableAttribute()]
+    public partial class Cls_CardexInsumos : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float CantidadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime Fecha_MovimientoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_InsumoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_UsuarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MotivoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Tipo_MovimientoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float Cantidad {
+            get {
+                return this.CantidadField;
+            }
+            set {
+                if ((this.CantidadField.Equals(value) != true)) {
+                    this.CantidadField = value;
+                    this.RaisePropertyChanged("Cantidad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Fecha_Movimiento {
+            get {
+                return this.Fecha_MovimientoField;
+            }
+            set {
+                if ((this.Fecha_MovimientoField.Equals(value) != true)) {
+                    this.Fecha_MovimientoField = value;
+                    this.RaisePropertyChanged("Fecha_Movimiento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Insumo {
+            get {
+                return this.Id_InsumoField;
+            }
+            set {
+                if ((this.Id_InsumoField.Equals(value) != true)) {
+                    this.Id_InsumoField = value;
+                    this.RaisePropertyChanged("Id_Insumo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Usuario {
+            get {
+                return this.Id_UsuarioField;
+            }
+            set {
+                if ((this.Id_UsuarioField.Equals(value) != true)) {
+                    this.Id_UsuarioField = value;
+                    this.RaisePropertyChanged("Id_Usuario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Motivo {
+            get {
+                return this.MotivoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MotivoField, value) != true)) {
+                    this.MotivoField = value;
+                    this.RaisePropertyChanged("Motivo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Tipo_Movimiento {
+            get {
+                return this.Tipo_MovimientoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Tipo_MovimientoField, value) != true)) {
+                    this.Tipo_MovimientoField = value;
+                    this.RaisePropertyChanged("Tipo_Movimiento");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Cls_Platos", Namespace="http://schemas.datacontract.org/2004/07/Entities")]
     [System.SerializableAttribute()]
     public partial class Cls_Platos : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -1409,6 +1534,15 @@ namespace WebClienteMVC.WCF_Apl_Dis {
         private int Id_UsuarioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ObservacionesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProveedorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float TotalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private byte[] VersionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1503,6 +1637,45 @@ namespace WebClienteMVC.WCF_Apl_Dis {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Observaciones {
+            get {
+                return this.ObservacionesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ObservacionesField, value) != true)) {
+                    this.ObservacionesField = value;
+                    this.RaisePropertyChanged("Observaciones");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Proveedor {
+            get {
+                return this.ProveedorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProveedorField, value) != true)) {
+                    this.ProveedorField = value;
+                    this.RaisePropertyChanged("Proveedor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float Total {
+            get {
+                return this.TotalField;
+            }
+            set {
+                if ((this.TotalField.Equals(value) != true)) {
+                    this.TotalField = value;
+                    this.RaisePropertyChanged("Total");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public byte[] Version {
             get {
                 return this.VersionField;
@@ -1558,6 +1731,9 @@ namespace WebClienteMVC.WCF_Apl_Dis {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int Id_InsumoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float Precio_UnitarioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string txt_InsumoField;
@@ -1628,6 +1804,19 @@ namespace WebClienteMVC.WCF_Apl_Dis {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public float Precio_Unitario {
+            get {
+                return this.Precio_UnitarioField;
+            }
+            set {
+                if ((this.Precio_UnitarioField.Equals(value) != true)) {
+                    this.Precio_UnitarioField = value;
+                    this.RaisePropertyChanged("Precio_Unitario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string txt_Insumo {
             get {
                 return this.txt_InsumoField;
@@ -1676,22 +1865,34 @@ namespace WebClienteMVC.WCF_Apl_Dis {
         private string ComentarioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ContextoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime Fecha_ComentarioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int Id_ComentarioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> Id_PlatoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_RelacionadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int Id_UsuarioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Id_VentaField;
+        private System.Nullable<int> Id_VentaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Nombre_UsuarioField;
+        private int ValoracionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TipoField;
+        private string tipoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string txt_UsuarioField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1712,6 +1913,19 @@ namespace WebClienteMVC.WCF_Apl_Dis {
                 if ((object.ReferenceEquals(this.ComentarioField, value) != true)) {
                     this.ComentarioField = value;
                     this.RaisePropertyChanged("Comentario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Contexto {
+            get {
+                return this.ContextoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ContextoField, value) != true)) {
+                    this.ContextoField = value;
+                    this.RaisePropertyChanged("Contexto");
                 }
             }
         }
@@ -1743,6 +1957,32 @@ namespace WebClienteMVC.WCF_Apl_Dis {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Id_Plato {
+            get {
+                return this.Id_PlatoField;
+            }
+            set {
+                if ((this.Id_PlatoField.Equals(value) != true)) {
+                    this.Id_PlatoField = value;
+                    this.RaisePropertyChanged("Id_Plato");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Relacionado {
+            get {
+                return this.Id_RelacionadoField;
+            }
+            set {
+                if ((this.Id_RelacionadoField.Equals(value) != true)) {
+                    this.Id_RelacionadoField = value;
+                    this.RaisePropertyChanged("Id_Relacionado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Id_Usuario {
             get {
                 return this.Id_UsuarioField;
@@ -1756,7 +1996,7 @@ namespace WebClienteMVC.WCF_Apl_Dis {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_Venta {
+        public System.Nullable<int> Id_Venta {
             get {
                 return this.Id_VentaField;
             }
@@ -1769,27 +2009,40 @@ namespace WebClienteMVC.WCF_Apl_Dis {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nombre_Usuario {
+        public int Valoracion {
             get {
-                return this.Nombre_UsuarioField;
+                return this.ValoracionField;
             }
             set {
-                if ((object.ReferenceEquals(this.Nombre_UsuarioField, value) != true)) {
-                    this.Nombre_UsuarioField = value;
-                    this.RaisePropertyChanged("Nombre_Usuario");
+                if ((this.ValoracionField.Equals(value) != true)) {
+                    this.ValoracionField = value;
+                    this.RaisePropertyChanged("Valoracion");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Tipo {
+        public string tipo {
             get {
-                return this.TipoField;
+                return this.tipoField;
             }
             set {
-                if ((object.ReferenceEquals(this.TipoField, value) != true)) {
-                    this.TipoField = value;
-                    this.RaisePropertyChanged("Tipo");
+                if ((object.ReferenceEquals(this.tipoField, value) != true)) {
+                    this.tipoField = value;
+                    this.RaisePropertyChanged("tipo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string txt_Usuario {
+            get {
+                return this.txt_UsuarioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.txt_UsuarioField, value) != true)) {
+                    this.txt_UsuarioField = value;
+                    this.RaisePropertyChanged("txt_Usuario");
                 }
             }
         }
@@ -2641,6 +2894,99 @@ namespace WebClienteMVC.WCF_Apl_Dis {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Cls_Cartera", Namespace="http://schemas.datacontract.org/2004/07/Entities")]
+    [System.SerializableAttribute()]
+    public partial class Cls_Cartera : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Clave_PinField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FechaVencimientoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Nro_TarjetaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TipoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Clave_Pin {
+            get {
+                return this.Clave_PinField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Clave_PinField, value) != true)) {
+                    this.Clave_PinField = value;
+                    this.RaisePropertyChanged("Clave_Pin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FechaVencimiento {
+            get {
+                return this.FechaVencimientoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FechaVencimientoField, value) != true)) {
+                    this.FechaVencimientoField = value;
+                    this.RaisePropertyChanged("FechaVencimiento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nro_Tarjeta {
+            get {
+                return this.Nro_TarjetaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Nro_TarjetaField, value) != true)) {
+                    this.Nro_TarjetaField = value;
+                    this.RaisePropertyChanged("Nro_Tarjeta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Tipo {
+            get {
+                return this.TipoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TipoField, value) != true)) {
+                    this.TipoField = value;
+                    this.RaisePropertyChanged("Tipo");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WCF_Apl_Dis.IService1")]
     public interface IService1 {
@@ -2693,6 +3039,12 @@ namespace WebClienteMVC.WCF_Apl_Dis {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Search_User", ReplyAction="http://tempuri.org/IService1/Search_UserResponse")]
         System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_Usuarios> Search_UserAsync(int Id_User);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Check_User_Status", ReplyAction="http://tempuri.org/IService1/Check_User_StatusResponse")]
+        bool Check_User_Status(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Check_User_Status", ReplyAction="http://tempuri.org/IService1/Check_User_StatusResponse")]
+        System.Threading.Tasks.Task<bool> Check_User_StatusAsync(int userId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Insert_Insumo", ReplyAction="http://tempuri.org/IService1/Insert_InsumoResponse")]
         void Insert_Insumo(WebClienteMVC.WCF_Apl_Dis.Cls_Insumos Insumo, int Id_Usuario);
         
@@ -2728,6 +3080,12 @@ namespace WebClienteMVC.WCF_Apl_Dis {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Search_Insumo", ReplyAction="http://tempuri.org/IService1/Search_InsumoResponse")]
         System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_Insumos> Search_InsumoAsync(int Insumo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_CardexByInsumo", ReplyAction="http://tempuri.org/IService1/Get_CardexByInsumoResponse")]
+        WebClienteMVC.WCF_Apl_Dis.Cls_CardexInsumos[] Get_CardexByInsumo(int Id_Insumo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_CardexByInsumo", ReplyAction="http://tempuri.org/IService1/Get_CardexByInsumoResponse")]
+        System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_CardexInsumos[]> Get_CardexByInsumoAsync(int Id_Insumo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Insert_Plato", ReplyAction="http://tempuri.org/IService1/Insert_PlatoResponse")]
         void Insert_Plato(WebClienteMVC.WCF_Apl_Dis.Cls_Platos Plato);
@@ -2784,10 +3142,10 @@ namespace WebClienteMVC.WCF_Apl_Dis {
         System.Threading.Tasks.Task Delete_PromocionAsync(int Id_Promocion);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Promociones", ReplyAction="http://tempuri.org/IService1/Get_PromocionesResponse")]
-        WebClienteMVC.WCF_Apl_Dis.Cls_Promociones[] Get_Promociones();
+        WebClienteMVC.WCF_Apl_Dis.Cls_Promociones[] Get_Promociones(bool Listar_Todo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Promociones", ReplyAction="http://tempuri.org/IService1/Get_PromocionesResponse")]
-        System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_Promociones[]> Get_PromocionesAsync();
+        System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_Promociones[]> Get_PromocionesAsync(bool Listar_Todo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Promocion_Platos", ReplyAction="http://tempuri.org/IService1/Get_Promocion_PlatosResponse")]
         WebClienteMVC.WCF_Apl_Dis.Cls_Promocion_Plato[] Get_Promocion_Platos();
@@ -2843,6 +3201,12 @@ namespace WebClienteMVC.WCF_Apl_Dis {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Search_Venta", ReplyAction="http://tempuri.org/IService1/Search_VentaResponse")]
         System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_Ventas> Search_VentaAsync(int Id_Venta);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Search_id_venta_activa", ReplyAction="http://tempuri.org/IService1/Search_id_venta_activaResponse")]
+        int Search_id_venta_activa(int Id_Venta);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Search_id_venta_activa", ReplyAction="http://tempuri.org/IService1/Search_id_venta_activaResponse")]
+        System.Threading.Tasks.Task<int> Search_id_venta_activaAsync(int Id_Venta);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Insert_Compra", ReplyAction="http://tempuri.org/IService1/Insert_CompraResponse")]
         void Insert_Compra(WebClienteMVC.WCF_Apl_Dis.Cls_Compras Compra);
         
@@ -2873,6 +3237,30 @@ namespace WebClienteMVC.WCF_Apl_Dis {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Search_Compra", ReplyAction="http://tempuri.org/IService1/Search_CompraResponse")]
         System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_Compras> Search_CompraAsync(int Id_Compra);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Compra", ReplyAction="http://tempuri.org/IService1/Delete_CompraResponse")]
+        void Delete_Compra(int Id_Compra);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Compra", ReplyAction="http://tempuri.org/IService1/Delete_CompraResponse")]
+        System.Threading.Tasks.Task Delete_CompraAsync(int Id_Compra);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_DetallesCompraByCompraId", ReplyAction="http://tempuri.org/IService1/Get_DetallesCompraByCompraIdResponse")]
+        WebClienteMVC.WCF_Apl_Dis.Cls_DetalleCompras[] Get_DetallesCompraByCompraId(int Id_Compra);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_DetallesCompraByCompraId", ReplyAction="http://tempuri.org/IService1/Get_DetallesCompraByCompraIdResponse")]
+        System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_DetalleCompras[]> Get_DetallesCompraByCompraIdAsync(int Id_Compra);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_DetallesCompra", ReplyAction="http://tempuri.org/IService1/Delete_DetallesCompraResponse")]
+        void Delete_DetallesCompra(int Id_Compra);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_DetallesCompra", ReplyAction="http://tempuri.org/IService1/Delete_DetallesCompraResponse")]
+        System.Threading.Tasks.Task Delete_DetallesCompraAsync(int Id_Compra);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Insert_DetalleCompra", ReplyAction="http://tempuri.org/IService1/Insert_DetalleCompraResponse")]
+        void Insert_DetalleCompra(WebClienteMVC.WCF_Apl_Dis.Cls_DetalleCompras Detalle);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Insert_DetalleCompra", ReplyAction="http://tempuri.org/IService1/Insert_DetalleCompraResponse")]
+        System.Threading.Tasks.Task Insert_DetalleCompraAsync(WebClienteMVC.WCF_Apl_Dis.Cls_DetalleCompras Detalle);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Insert_Comentario", ReplyAction="http://tempuri.org/IService1/Insert_ComentarioResponse")]
         void Insert_Comentario(WebClienteMVC.WCF_Apl_Dis.Cls_Comentarios Comentario);
         
@@ -2886,10 +3274,16 @@ namespace WebClienteMVC.WCF_Apl_Dis {
         System.Threading.Tasks.Task Delete_ComentarioAsync(int Id_Comentario);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Comentarios", ReplyAction="http://tempuri.org/IService1/Get_ComentariosResponse")]
-        WebClienteMVC.WCF_Apl_Dis.Cls_Comentarios[] Get_Comentarios(string Tipo);
+        WebClienteMVC.WCF_Apl_Dis.Cls_Comentarios[] Get_Comentarios(string Contexto, int Id_Relacionado);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Comentarios", ReplyAction="http://tempuri.org/IService1/Get_ComentariosResponse")]
-        System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_Comentarios[]> Get_ComentariosAsync(string Tipo);
+        System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_Comentarios[]> Get_ComentariosAsync(string Contexto, int Id_Relacionado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Comentarios_All", ReplyAction="http://tempuri.org/IService1/Get_Comentarios_AllResponse")]
+        WebClienteMVC.WCF_Apl_Dis.Cls_Comentarios[] Get_Comentarios_All();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Comentarios_All", ReplyAction="http://tempuri.org/IService1/Get_Comentarios_AllResponse")]
+        System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_Comentarios[]> Get_Comentarios_AllAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_KPI_Dinamico", ReplyAction="http://tempuri.org/IService1/Get_KPI_DinamicoResponse")]
         WebClienteMVC.WCF_Apl_Dis.Cls_KPI_Dinamico_Result Get_KPI_Dinamico(System.Nullable<System.DateTime> FechaInicio, System.Nullable<System.DateTime> FechaFin, System.Nullable<int> IdCliente, System.Nullable<int> IdUsuario, System.Nullable<int> IdPlato);
@@ -2902,6 +3296,53 @@ namespace WebClienteMVC.WCF_Apl_Dis {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Alertas", ReplyAction="http://tempuri.org/IService1/Get_AlertasResponse")]
         System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_Alerta[]> Get_AlertasAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Procesar_Pago", ReplyAction="http://tempuri.org/IService1/Procesar_PagoResponse")]
+        WebClienteMVC.WCF_Apl_Dis.Procesar_PagoResponse Procesar_Pago(WebClienteMVC.WCF_Apl_Dis.Procesar_PagoRequest request);
+        
+        // CODEGEN: Generando contrato de mensaje, ya que la operación tiene múltiples valores de devolución.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Procesar_Pago", ReplyAction="http://tempuri.org/IService1/Procesar_PagoResponse")]
+        System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Procesar_PagoResponse> Procesar_PagoAsync(WebClienteMVC.WCF_Apl_Dis.Procesar_PagoRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Procesar_Pago", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class Procesar_PagoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public WebClienteMVC.WCF_Apl_Dis.Cls_Cartera objCartera;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public float monto;
+        
+        public Procesar_PagoRequest() {
+        }
+        
+        public Procesar_PagoRequest(WebClienteMVC.WCF_Apl_Dis.Cls_Cartera objCartera, float monto) {
+            this.objCartera = objCartera;
+            this.monto = monto;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Procesar_PagoResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class Procesar_PagoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool Procesar_PagoResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string mensaje;
+        
+        public Procesar_PagoResponse() {
+        }
+        
+        public Procesar_PagoResponse(bool Procesar_PagoResult, string mensaje) {
+            this.Procesar_PagoResult = Procesar_PagoResult;
+            this.mensaje = mensaje;
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2995,6 +3436,14 @@ namespace WebClienteMVC.WCF_Apl_Dis {
             return base.Channel.Search_UserAsync(Id_User);
         }
         
+        public bool Check_User_Status(int userId) {
+            return base.Channel.Check_User_Status(userId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> Check_User_StatusAsync(int userId) {
+            return base.Channel.Check_User_StatusAsync(userId);
+        }
+        
         public void Insert_Insumo(WebClienteMVC.WCF_Apl_Dis.Cls_Insumos Insumo, int Id_Usuario) {
             base.Channel.Insert_Insumo(Insumo, Id_Usuario);
         }
@@ -3041,6 +3490,14 @@ namespace WebClienteMVC.WCF_Apl_Dis {
         
         public System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_Insumos> Search_InsumoAsync(int Insumo) {
             return base.Channel.Search_InsumoAsync(Insumo);
+        }
+        
+        public WebClienteMVC.WCF_Apl_Dis.Cls_CardexInsumos[] Get_CardexByInsumo(int Id_Insumo) {
+            return base.Channel.Get_CardexByInsumo(Id_Insumo);
+        }
+        
+        public System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_CardexInsumos[]> Get_CardexByInsumoAsync(int Id_Insumo) {
+            return base.Channel.Get_CardexByInsumoAsync(Id_Insumo);
         }
         
         public void Insert_Plato(WebClienteMVC.WCF_Apl_Dis.Cls_Platos Plato) {
@@ -3115,12 +3572,12 @@ namespace WebClienteMVC.WCF_Apl_Dis {
             return base.Channel.Delete_PromocionAsync(Id_Promocion);
         }
         
-        public WebClienteMVC.WCF_Apl_Dis.Cls_Promociones[] Get_Promociones() {
-            return base.Channel.Get_Promociones();
+        public WebClienteMVC.WCF_Apl_Dis.Cls_Promociones[] Get_Promociones(bool Listar_Todo) {
+            return base.Channel.Get_Promociones(Listar_Todo);
         }
         
-        public System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_Promociones[]> Get_PromocionesAsync() {
-            return base.Channel.Get_PromocionesAsync();
+        public System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_Promociones[]> Get_PromocionesAsync(bool Listar_Todo) {
+            return base.Channel.Get_PromocionesAsync(Listar_Todo);
         }
         
         public WebClienteMVC.WCF_Apl_Dis.Cls_Promocion_Plato[] Get_Promocion_Platos() {
@@ -3195,6 +3652,14 @@ namespace WebClienteMVC.WCF_Apl_Dis {
             return base.Channel.Search_VentaAsync(Id_Venta);
         }
         
+        public int Search_id_venta_activa(int Id_Venta) {
+            return base.Channel.Search_id_venta_activa(Id_Venta);
+        }
+        
+        public System.Threading.Tasks.Task<int> Search_id_venta_activaAsync(int Id_Venta) {
+            return base.Channel.Search_id_venta_activaAsync(Id_Venta);
+        }
+        
         public void Insert_Compra(WebClienteMVC.WCF_Apl_Dis.Cls_Compras Compra) {
             base.Channel.Insert_Compra(Compra);
         }
@@ -3235,6 +3700,38 @@ namespace WebClienteMVC.WCF_Apl_Dis {
             return base.Channel.Search_CompraAsync(Id_Compra);
         }
         
+        public void Delete_Compra(int Id_Compra) {
+            base.Channel.Delete_Compra(Id_Compra);
+        }
+        
+        public System.Threading.Tasks.Task Delete_CompraAsync(int Id_Compra) {
+            return base.Channel.Delete_CompraAsync(Id_Compra);
+        }
+        
+        public WebClienteMVC.WCF_Apl_Dis.Cls_DetalleCompras[] Get_DetallesCompraByCompraId(int Id_Compra) {
+            return base.Channel.Get_DetallesCompraByCompraId(Id_Compra);
+        }
+        
+        public System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_DetalleCompras[]> Get_DetallesCompraByCompraIdAsync(int Id_Compra) {
+            return base.Channel.Get_DetallesCompraByCompraIdAsync(Id_Compra);
+        }
+        
+        public void Delete_DetallesCompra(int Id_Compra) {
+            base.Channel.Delete_DetallesCompra(Id_Compra);
+        }
+        
+        public System.Threading.Tasks.Task Delete_DetallesCompraAsync(int Id_Compra) {
+            return base.Channel.Delete_DetallesCompraAsync(Id_Compra);
+        }
+        
+        public void Insert_DetalleCompra(WebClienteMVC.WCF_Apl_Dis.Cls_DetalleCompras Detalle) {
+            base.Channel.Insert_DetalleCompra(Detalle);
+        }
+        
+        public System.Threading.Tasks.Task Insert_DetalleCompraAsync(WebClienteMVC.WCF_Apl_Dis.Cls_DetalleCompras Detalle) {
+            return base.Channel.Insert_DetalleCompraAsync(Detalle);
+        }
+        
         public void Insert_Comentario(WebClienteMVC.WCF_Apl_Dis.Cls_Comentarios Comentario) {
             base.Channel.Insert_Comentario(Comentario);
         }
@@ -3251,12 +3748,20 @@ namespace WebClienteMVC.WCF_Apl_Dis {
             return base.Channel.Delete_ComentarioAsync(Id_Comentario);
         }
         
-        public WebClienteMVC.WCF_Apl_Dis.Cls_Comentarios[] Get_Comentarios(string Tipo) {
-            return base.Channel.Get_Comentarios(Tipo);
+        public WebClienteMVC.WCF_Apl_Dis.Cls_Comentarios[] Get_Comentarios(string Contexto, int Id_Relacionado) {
+            return base.Channel.Get_Comentarios(Contexto, Id_Relacionado);
         }
         
-        public System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_Comentarios[]> Get_ComentariosAsync(string Tipo) {
-            return base.Channel.Get_ComentariosAsync(Tipo);
+        public System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_Comentarios[]> Get_ComentariosAsync(string Contexto, int Id_Relacionado) {
+            return base.Channel.Get_ComentariosAsync(Contexto, Id_Relacionado);
+        }
+        
+        public WebClienteMVC.WCF_Apl_Dis.Cls_Comentarios[] Get_Comentarios_All() {
+            return base.Channel.Get_Comentarios_All();
+        }
+        
+        public System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_Comentarios[]> Get_Comentarios_AllAsync() {
+            return base.Channel.Get_Comentarios_AllAsync();
         }
         
         public WebClienteMVC.WCF_Apl_Dis.Cls_KPI_Dinamico_Result Get_KPI_Dinamico(System.Nullable<System.DateTime> FechaInicio, System.Nullable<System.DateTime> FechaFin, System.Nullable<int> IdCliente, System.Nullable<int> IdUsuario, System.Nullable<int> IdPlato) {
@@ -3273,6 +3778,24 @@ namespace WebClienteMVC.WCF_Apl_Dis {
         
         public System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Cls_Alerta[]> Get_AlertasAsync() {
             return base.Channel.Get_AlertasAsync();
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebClienteMVC.WCF_Apl_Dis.Procesar_PagoResponse WebClienteMVC.WCF_Apl_Dis.IService1.Procesar_Pago(WebClienteMVC.WCF_Apl_Dis.Procesar_PagoRequest request) {
+            return base.Channel.Procesar_Pago(request);
+        }
+        
+        public bool Procesar_Pago(WebClienteMVC.WCF_Apl_Dis.Cls_Cartera objCartera, float monto, out string mensaje) {
+            WebClienteMVC.WCF_Apl_Dis.Procesar_PagoRequest inValue = new WebClienteMVC.WCF_Apl_Dis.Procesar_PagoRequest();
+            inValue.objCartera = objCartera;
+            inValue.monto = monto;
+            WebClienteMVC.WCF_Apl_Dis.Procesar_PagoResponse retVal = ((WebClienteMVC.WCF_Apl_Dis.IService1)(this)).Procesar_Pago(inValue);
+            mensaje = retVal.mensaje;
+            return retVal.Procesar_PagoResult;
+        }
+        
+        public System.Threading.Tasks.Task<WebClienteMVC.WCF_Apl_Dis.Procesar_PagoResponse> Procesar_PagoAsync(WebClienteMVC.WCF_Apl_Dis.Procesar_PagoRequest request) {
+            return base.Channel.Procesar_PagoAsync(request);
         }
     }
 }

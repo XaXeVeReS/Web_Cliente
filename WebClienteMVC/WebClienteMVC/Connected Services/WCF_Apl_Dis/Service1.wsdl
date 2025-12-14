@@ -55,6 +55,12 @@
   <wsdl:message name="IService1_Search_User_OutputMessage">
     <wsdl:part name="parameters" element="tns:Search_UserResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_Check_User_Status_InputMessage">
+    <wsdl:part name="parameters" element="tns:Check_User_Status" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Check_User_Status_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Check_User_StatusResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_Insert_Insumo_InputMessage">
     <wsdl:part name="parameters" element="tns:Insert_Insumo" />
   </wsdl:message>
@@ -90,6 +96,12 @@
   </wsdl:message>
   <wsdl:message name="IService1_Search_Insumo_OutputMessage">
     <wsdl:part name="parameters" element="tns:Search_InsumoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Get_CardexByInsumo_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_CardexByInsumo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Get_CardexByInsumo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_CardexByInsumoResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_Insert_Plato_InputMessage">
     <wsdl:part name="parameters" element="tns:Insert_Plato" />
@@ -205,6 +217,12 @@
   <wsdl:message name="IService1_Search_Venta_OutputMessage">
     <wsdl:part name="parameters" element="tns:Search_VentaResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_Search_id_venta_activa_InputMessage">
+    <wsdl:part name="parameters" element="tns:Search_id_venta_activa" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Search_id_venta_activa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Search_id_venta_activaResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_Insert_Compra_InputMessage">
     <wsdl:part name="parameters" element="tns:Insert_Compra" />
   </wsdl:message>
@@ -235,6 +253,30 @@
   <wsdl:message name="IService1_Search_Compra_OutputMessage">
     <wsdl:part name="parameters" element="tns:Search_CompraResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_Delete_Compra_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delete_Compra" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Delete_Compra_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Delete_CompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Get_DetallesCompraByCompraId_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_DetallesCompraByCompraId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Get_DetallesCompraByCompraId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_DetallesCompraByCompraIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Delete_DetallesCompra_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delete_DetallesCompra" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Delete_DetallesCompra_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Delete_DetallesCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Insert_DetalleCompra_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insert_DetalleCompra" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Insert_DetalleCompra_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insert_DetalleCompraResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_Insert_Comentario_InputMessage">
     <wsdl:part name="parameters" element="tns:Insert_Comentario" />
   </wsdl:message>
@@ -253,6 +295,12 @@
   <wsdl:message name="IService1_Get_Comentarios_OutputMessage">
     <wsdl:part name="parameters" element="tns:Get_ComentariosResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_Get_Comentarios_All_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Comentarios_All" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Get_Comentarios_All_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Comentarios_AllResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_Get_KPI_Dinamico_InputMessage">
     <wsdl:part name="parameters" element="tns:Get_KPI_Dinamico" />
   </wsdl:message>
@@ -264,6 +312,12 @@
   </wsdl:message>
   <wsdl:message name="IService1_Get_Alertas_OutputMessage">
     <wsdl:part name="parameters" element="tns:Get_AlertasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Procesar_Pago_InputMessage">
+    <wsdl:part name="parameters" element="tns:Procesar_Pago" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Procesar_Pago_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Procesar_PagoResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="Login_User">
@@ -298,6 +352,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Search_User" message="tns:IService1_Search_User_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Search_UserResponse" message="tns:IService1_Search_User_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Check_User_Status">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Check_User_Status" message="tns:IService1_Check_User_Status_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Check_User_StatusResponse" message="tns:IService1_Check_User_Status_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Insert_Insumo">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Insert_Insumo" message="tns:IService1_Insert_Insumo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Insert_InsumoResponse" message="tns:IService1_Insert_Insumo_OutputMessage" />
@@ -321,6 +379,10 @@
     <wsdl:operation name="Search_Insumo">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Search_Insumo" message="tns:IService1_Search_Insumo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Search_InsumoResponse" message="tns:IService1_Search_Insumo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_CardexByInsumo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_CardexByInsumo" message="tns:IService1_Get_CardexByInsumo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Get_CardexByInsumoResponse" message="tns:IService1_Get_CardexByInsumo_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Insert_Plato">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Insert_Plato" message="tns:IService1_Insert_Plato_InputMessage" />
@@ -398,6 +460,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Search_Venta" message="tns:IService1_Search_Venta_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Search_VentaResponse" message="tns:IService1_Search_Venta_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Search_id_venta_activa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Search_id_venta_activa" message="tns:IService1_Search_id_venta_activa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Search_id_venta_activaResponse" message="tns:IService1_Search_id_venta_activa_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Insert_Compra">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Insert_Compra" message="tns:IService1_Insert_Compra_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Insert_CompraResponse" message="tns:IService1_Insert_Compra_OutputMessage" />
@@ -418,6 +484,22 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Search_Compra" message="tns:IService1_Search_Compra_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Search_CompraResponse" message="tns:IService1_Search_Compra_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Delete_Compra">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Delete_Compra" message="tns:IService1_Delete_Compra_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Delete_CompraResponse" message="tns:IService1_Delete_Compra_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_DetallesCompraByCompraId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_DetallesCompraByCompraId" message="tns:IService1_Get_DetallesCompraByCompraId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Get_DetallesCompraByCompraIdResponse" message="tns:IService1_Get_DetallesCompraByCompraId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete_DetallesCompra">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Delete_DetallesCompra" message="tns:IService1_Delete_DetallesCompra_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Delete_DetallesCompraResponse" message="tns:IService1_Delete_DetallesCompra_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert_DetalleCompra">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Insert_DetalleCompra" message="tns:IService1_Insert_DetalleCompra_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Insert_DetalleCompraResponse" message="tns:IService1_Insert_DetalleCompra_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Insert_Comentario">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Insert_Comentario" message="tns:IService1_Insert_Comentario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Insert_ComentarioResponse" message="tns:IService1_Insert_Comentario_OutputMessage" />
@@ -430,6 +512,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_Comentarios" message="tns:IService1_Get_Comentarios_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Get_ComentariosResponse" message="tns:IService1_Get_Comentarios_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Get_Comentarios_All">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_Comentarios_All" message="tns:IService1_Get_Comentarios_All_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Get_Comentarios_AllResponse" message="tns:IService1_Get_Comentarios_All_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Get_KPI_Dinamico">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_KPI_Dinamico" message="tns:IService1_Get_KPI_Dinamico_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Get_KPI_DinamicoResponse" message="tns:IService1_Get_KPI_Dinamico_OutputMessage" />
@@ -437,6 +523,10 @@
     <wsdl:operation name="Get_Alertas">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_Alertas" message="tns:IService1_Get_Alertas_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Get_AlertasResponse" message="tns:IService1_Get_Alertas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Procesar_Pago">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Procesar_Pago" message="tns:IService1_Procesar_Pago_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Procesar_PagoResponse" message="tns:IService1_Procesar_Pago_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -513,6 +603,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Check_User_Status">
+      <soap:operation soapAction="http://tempuri.org/IService1/Check_User_Status" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Insert_Insumo">
       <soap:operation soapAction="http://tempuri.org/IService1/Insert_Insumo" style="document" />
       <wsdl:input>
@@ -560,6 +659,15 @@
     </wsdl:operation>
     <wsdl:operation name="Search_Insumo">
       <soap:operation soapAction="http://tempuri.org/IService1/Search_Insumo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_CardexByInsumo">
+      <soap:operation soapAction="http://tempuri.org/IService1/Get_CardexByInsumo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -738,6 +846,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Search_id_venta_activa">
+      <soap:operation soapAction="http://tempuri.org/IService1/Search_id_venta_activa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Insert_Compra">
       <soap:operation soapAction="http://tempuri.org/IService1/Insert_Compra" style="document" />
       <wsdl:input>
@@ -783,6 +900,42 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Delete_Compra">
+      <soap:operation soapAction="http://tempuri.org/IService1/Delete_Compra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_DetallesCompraByCompraId">
+      <soap:operation soapAction="http://tempuri.org/IService1/Get_DetallesCompraByCompraId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete_DetallesCompra">
+      <soap:operation soapAction="http://tempuri.org/IService1/Delete_DetallesCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_DetalleCompra">
+      <soap:operation soapAction="http://tempuri.org/IService1/Insert_DetalleCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Insert_Comentario">
       <soap:operation soapAction="http://tempuri.org/IService1/Insert_Comentario" style="document" />
       <wsdl:input>
@@ -810,6 +963,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Get_Comentarios_All">
+      <soap:operation soapAction="http://tempuri.org/IService1/Get_Comentarios_All" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Get_KPI_Dinamico">
       <soap:operation soapAction="http://tempuri.org/IService1/Get_KPI_Dinamico" style="document" />
       <wsdl:input>
@@ -821,6 +983,15 @@
     </wsdl:operation>
     <wsdl:operation name="Get_Alertas">
       <soap:operation soapAction="http://tempuri.org/IService1/Get_Alertas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Procesar_Pago">
+      <soap:operation soapAction="http://tempuri.org/IService1/Procesar_Pago" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
