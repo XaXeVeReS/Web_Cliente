@@ -15,11 +15,15 @@ namespace WebClienteMVC.Models
         [Required(ErrorMessage = "Ingrese el token enviado a su correo")]
         public string Token { get; set; }
 
-        [Required(ErrorMessage = "Ingrese una nueva contraseña")]
+        [Required(ErrorMessage = "Ingrese su contraseña")]
+        [RegularExpression("^(?=.*[A-Z])(?=.*\\d).{8,}$",
+        ErrorMessage = "La contraseña debe tener al menos 8 caracteres, una mayúscula y un número")]
         public string NuevaClave { get; set; }
 
         [Required(ErrorMessage = "Confirme su nueva contraseña")]
         [Compare("NuevaClave", ErrorMessage = "Las contraseñas no coinciden")]
         public string ConfirmarClave { get; set; }
+
+        public string Error { get; set; }
     }
 }

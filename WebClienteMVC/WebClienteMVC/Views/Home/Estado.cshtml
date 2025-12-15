@@ -111,12 +111,12 @@
 
                 let estado = data.estado;
 
-                // --- DETECTAR CAMBIO PARA RECARGAR LA PÁGINA ---
-                if (estadoAnterior !== null && estadoAnterior !== estado) {
-                    console.log("El estado cambió de " + estadoAnterior + " a " + estado);
-                    location.reload();
-                    return;
-                }
+                
+                //if (estadoAnterior !== null && estadoAnterior !== estado) {
+                //   console.log("El estado cambió de " + estadoAnterior + " a " + estado);
+                //   location.reload();
+                //    return;
+                //}
                 estadoAnterior = estado;
 
                 // --- LÓGICA DE ESTADOS ESPECÍFICOS ---
@@ -127,16 +127,19 @@
                     $("#imagenEstado").attr("src", "/Recursos/pendiente.png");
                     $("#mensajeEstado").text("Estamos validando tu pedido. " + (data.horaLista ? "Hora aprox: " + data.horaLista : ""));
 
+                    $("#btnCancelar").show(); 
                     $("#acciones-pedido").show();
                     $("#accion-finalizar").hide();
+
                 }
                 else if (estado === "Procesando") {
                     $("#tituloEstado").text("Cocinando...");
                     $("#imagenEstado").attr("src", "/Recursos/preparando.png");
                     $("#mensajeEstado").text("El chef está preparando tus platos.");
 
+                    $("#btnCancelar").hide();
                     $("#acciones-pedido").show();
-                    $("#accion-finalizar").hide();
+                  
                 }
                 // B. ESTADO EXITOSO (Fin del ciclo)
                 else if (estado === "Entregado") {
@@ -190,8 +193,29 @@
                 cancelButtonText: 'No, esperar'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // Aquí deberías llamar a un AJAX para cambiar estado a 'Cancelado' en BD
-                    // Por ahora simulamos el fin del ciclo localmente:
+                    $.ajax({
+                        url: "/Ventas/CancelarVenta",
+                        type: "POST",
+                        data: { idVenta: idVenta },
+                        success: function (resp) {
+                            if (resp.ok) {
+                                Swal.fire(
+                                    '¡Cancelado!',
+                                    'Tu pedido ha sido cancelado.',
+                                    'success'
+                                ).then(() => {
+                                    // Recargamos la página para que el script "actualizarEstado"
+                                    // detecte el nuevo estado "Cancelado" y pinte la pantalla roja.
+                                    location.reload();
+                                });
+                            } else {
+                                Swal.fire('Error', resp.msg, 'error');
+                            }
+                        },
+                        error: function () {
+                            Swal.fire('Error', 'No se pudo conectar con el servidor', 'error');
+                        }
+                    });
                     finalizarCiclo();
                 }
             });

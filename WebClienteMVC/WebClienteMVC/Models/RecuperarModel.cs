@@ -9,8 +9,8 @@ namespace WebClienteMVC.Models
     public class RecuperarModel
     {
         [Required(ErrorMessage = "Ingrese su contraseña")]
-        [RegularExpression("^(?=.*[A-Z])(?=.*\\d).{9,}$",
-        ErrorMessage = "La contraseña debe tener al menos 9 caracteres, una mayúscula y un número")]
+        [RegularExpression("^(?=.*[A-Z])(?=.*\\d).{8,}$",
+        ErrorMessage = "La contraseña debe tener al menos 8 caracteres, una mayúscula y un número")]
         public string Password { get; set; }
         public string Usuario { get; set; }
 

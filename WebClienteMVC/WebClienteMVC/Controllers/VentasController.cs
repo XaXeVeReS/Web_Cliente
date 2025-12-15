@@ -112,5 +112,44 @@ namespace WebClienteMVC.Controllers
                 horaLista = horaLista
             }, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpPost]
+        public ActionResult CancelarVenta(int idVenta)
+        {
+            try
+            {
+                // 1. Buscamos la venta actual en la base de datos
+                var venta = servicio.Get_Estado_Venta(idVenta);
+
+                if (venta == null)
+                {
+                    return Json(new { ok = false, msg = "El pedido no existe." });
+                }
+
+                // --- VALIDACIÓN DE REGLA DE NEGOCIO ---
+                // Solo permitimos cancelar si está en "Pendiente"
+                if (venta.Estado != "Pendiente")
+                {
+                    return Json(new
+                    {
+                        ok = false,
+                        msg = $"No se puede cancelar. El pedido ya está en estado '{venta.Estado}'."
+                    });
+                }
+                // --------------------------------------
+
+                // 2. Si pasó la validación, procedemos
+                venta.Estado = "Cancelado";
+
+                // 3. Guardamos en BD
+                servicio.State_Venta(venta);
+
+                return Json(new { ok = true });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { ok = false, msg = "Error al procesar: " + ex.Message });
+            }
+        }
     }
 }
